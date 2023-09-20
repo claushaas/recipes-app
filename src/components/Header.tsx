@@ -1,3 +1,4 @@
+import { Link } from 'react-router-dom';
 import searchIcon from '../images/searchIcon.svg';
 import profileIcon from '../images/profileIcon.svg';
 
@@ -15,7 +16,9 @@ function Header({ title, showSearch, showProfile }: HeaderProps) {
         <img src={ searchIcon } alt="Pesquisar" data-testid="search-top-btn" />
       )}
       {showProfile && (
-        <img src={ profileIcon } alt="Perfil" data-testid="profile-top-btn" />
+        <Link to="/profile">
+          <img src={ profileIcon } alt="Perfil" data-testid="profile-top-btn" />
+        </Link>
       )}
     </header>
   );
