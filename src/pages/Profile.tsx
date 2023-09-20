@@ -1,6 +1,11 @@
+import Header from '../components/Header';
+
 function Profile() {
   return (
-    <div>Profile</div>
+    <>
+      <Header title="Profile" showSearch={ false } showProfile />
+      <div>Profile</div>
+    </>
   );
 }
 
