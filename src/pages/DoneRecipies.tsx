@@ -1,6 +1,11 @@
+import Header from '../components/Header';
+
 function DoneRecipies() {
   return (
-    <div>DoneRecipies</div>
+    <>
+      <Header title="Done Recipes" showSearch={ false } showProfile />
+      <div>DoneRecipies</div>
+    </>
   );
 }
 

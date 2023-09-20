@@ -1,6 +1,11 @@
+import Header from '../components/Header';
+
 function FavoriteRecipies() {
   return (
-    <div>FavoriteRecipies</div>
+    <>
+      <Header title="Favorite Recipes" showSearch={ false } showProfile />
+      <div>FavoriteRecipies</div>
+    </>
   );
 }
 

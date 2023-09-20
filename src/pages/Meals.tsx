@@ -1,6 +1,11 @@
+import Header from '../components/Header';
+
 function Meals() {
   return (
-    <div>Meals</div>
+    <>
+      <Header title="Meals" showSearch showProfile />
+      <div>Meals</div>
+    </>
   );
 }
 
