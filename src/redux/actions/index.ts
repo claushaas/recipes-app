@@ -1,5 +1,5 @@
 import { searchDrinksAPI, searchMealsAPI } from '../../services/searchAPI';
-import { Dispatch, Meals } from '../../types';
+import { Dispatch, Drinks, Meals } from '../../types';
 
 export const SET_MEALS = 'SET_MEALS';
 export const SET_DRINKS = 'SET_DRINKS';
@@ -16,7 +16,7 @@ export const fetchMeals = (term: string, searchType: string) => async (
   dispatch(getMeals(data));
 };
 
-const getDrinks = (data) => ({
+const getDrinks = (data: Drinks) => ({
   type: SET_DRINKS,
   payload: data,
 });

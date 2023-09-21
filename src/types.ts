@@ -5,7 +5,18 @@ export type ReduxState = {
   meals: {
     meals: Meals;
   }
+  drinks: {
+    drinks: Drinks;
+  }
 };
+
+export type Drink = {
+  strDrink: string;
+  strDrinkThumb: string
+  idDrink: string;
+};
+
+export type Drinks = Drink[];
 
 export type Meal = {
   strMeal: string;

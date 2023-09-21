@@ -1,12 +1,15 @@
-import { useLocation } from 'react-router-dom';
+import { useLocation, useNavigate } from 'react-router-dom';
 
-import { useDispatch } from 'react-redux';
+import { useDispatch, useSelector } from 'react-redux';
+import { useEffect } from 'react';
 import { fetchDrinks, fetchMeals } from '../redux/actions';
+import { ReduxState } from '../types';
 
 function SearchBar() {
   const location = useLocation();
-  // console.log(location.pathname);
   const dispatch = useDispatch();
+  const { meals, drinks } = useSelector((state: ReduxState) => state);
+  const navigate = useNavigate();
 
   const handleFormSubmit = async (e: React.FormEvent<HTMLFormElement>) => {
     e.preventDefault();
@@ -23,6 +26,17 @@ function SearchBar() {
       dispatch(fetchDrinks(term.value, searchType.value));
     }
   };
+
+  useEffect(() => {
+    console.log(meals.meals.length);
+    if (meals.meals.length === 1) {
+      navigate(`/meals/${meals.meals[0].idMeal}`);
+    }
+
+    if (drinks.drinks.length === 1) {
+      navigate(`/drinks/${drinks.drinks[0].idDrink}`);
+    }
+  }, [meals, drinks, navigate]);
 
   return (
     <form onSubmit={ handleFormSubmit }>
