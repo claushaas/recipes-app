@@ -25,5 +25,5 @@ export const searchDrinksAPI = async (term: string, searchType: string) => {
     response = await fetch(`https://www.thecocktaildb.com/api/json/v1/1/search.php?f=${term}`);
   }
   const data = await response?.json();
-  return data.drinks;
+  return data && data.drinks;
 };

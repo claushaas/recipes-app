@@ -57,3 +57,11 @@ const mockData = [
 ];
 
 export default mockData;
+
+export const mockDataOnlyOne = [
+  {
+    strMeal: 'Brown Stew Chicken',
+    strMealThumb: 'https://www.themealdb.com/images/media/meals/sypxpx1515365095.jpg',
+    idMeal: '52940',
+  },
+];
