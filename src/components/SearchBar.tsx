@@ -25,18 +25,18 @@ function SearchBar() {
 
   const handleFormSubmit = async (e: React.FormEvent<HTMLFormElement>) => {
     e.preventDefault();
-    const { term, searchType } = e.currentTarget;
+    // const { term, searchType } = e.currentTarget;
 
     // if (searchType?.value === 'firstLetter' && term.value.length > 1) {
     //   return window.alert('Your search must have only 1 (one) character');
     // }
 
     if (location.pathname === '/meals') {
-      dispatch(fetchMeals(term?.value, searchType?.value));
+      dispatch(fetchMeals(formValues.term, formValues.searchType));
     }
 
     if (location.pathname === '/drinks') {
-      dispatch(fetchDrinks(term?.value, searchType?.value));
+      dispatch(fetchDrinks(formValues.term, formValues.searchType));
     }
 
     setSearched(true);
