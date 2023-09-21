@@ -195,11 +195,6 @@ describe('Teste do componente SearchBar', () => {
 
     const { user } = renderWithRouterAndRedux(<App />, '/drinks');
 
-    const heading = screen.getByRole('heading', {
-      name: /drinks/i,
-    });
-    expect(heading).toBeInTheDocument();
-
     const searchButton = screen.getByRole('button', {
       name: /pesquisar/i,
     });

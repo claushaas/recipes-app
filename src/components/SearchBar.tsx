@@ -5,7 +5,18 @@ import { useEffect, useState } from 'react';
 import { fetchDrinks, fetchMeals } from '../redux/actions';
 import { ReduxState } from '../types';
 
+type FormValuesTypes = {
+  term: string;
+  searchType: string;
+};
+
+const initialFormValues = {
+  term: '',
+  searchType: '',
+};
+
 function SearchBar() {
+  const [formValues, setFormValues] = useState<FormValuesTypes>(initialFormValues);
   const [searched, setSearched] = useState(false);
   const location = useLocation();
   const dispatch = useDispatch();
@@ -16,9 +27,10 @@ function SearchBar() {
     e.preventDefault();
     const { term, searchType } = e.currentTarget;
 
-    if (searchType?.value === 'firstLetter' && term.value.length > 1) {
-      return window.alert('Your search must have only 1 (one) character');
-    }
+    // if (searchType?.value === 'firstLetter' && term.value.length > 1) {
+    //   return window.alert('Your search must have only 1 (one) character');
+    // }
+
     if (location.pathname === '/meals') {
       dispatch(fetchMeals(term?.value, searchType?.value));
     }
@@ -29,6 +41,16 @@ function SearchBar() {
 
     setSearched(true);
   };
+
+  useEffect(() => {
+    if (formValues.searchType === 'firstLetter' && formValues.term.length > 1) {
+      window.alert('Your search must have only 1 (one) character');
+      setFormValues({
+        ...formValues,
+        term: '',
+      });
+    }
+  }, [formValues]);
 
   useEffect(() => {
     if (meals.meals?.length === 1) {
@@ -50,9 +72,26 @@ function SearchBar() {
     }
   }, [meals, drinks, navigate, searched]);
 
+  const handleChange = (
+    event: React.ChangeEvent<HTMLInputElement | HTMLSelectElement | HTMLTextAreaElement>,
+  ) => {
+    const { name, value } = event.target;
+    setFormValues({
+      ...formValues,
+      [name]: value,
+    });
+  };
+
   return (
     <form onSubmit={ handleFormSubmit }>
-      <input type="text" name="term" id="term" data-testid="search-input" />
+      <input
+        type="text"
+        name="term"
+        id="term"
+        data-testid="search-input"
+        onChange={ handleChange }
+        value={ formValues.term }
+      />
       <label htmlFor="ingredient">
         <input
           data-testid="ingredient-search-radio"
@@ -61,6 +100,8 @@ function SearchBar() {
           type="radio"
           name="searchType"
           required
+          checked={ formValues.searchType === 'ingredient' }
+          onChange={ handleChange }
         />
         Ingredient
       </label>
@@ -71,6 +112,9 @@ function SearchBar() {
           value="name"
           type="radio"
           name="searchType"
+          required
+          checked={ formValues.searchType === 'name' }
+          onChange={ handleChange }
         />
         Name
       </label>
@@ -81,6 +125,9 @@ function SearchBar() {
           value="firstLetter"
           type="radio"
           name="searchType"
+          required
+          checked={ formValues.searchType === 'firstLetter' }
+          onChange={ handleChange }
         />
         First Letter
       </label>
