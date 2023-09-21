@@ -18,19 +18,13 @@ function Login() {
       [name]: value,
     };
     setUser(data);
-
-    // if (isEmail(user.email) && user.password.length >= 6) {
-      // setDisable(!(isEmail(user.email)) || user.password.length < 6);
-    // } else {
-      // setDisable(true);
-    // }
   };
 
   const navigate = useNavigate();
 
   const handleSubmit = () => {
-    const email = user.email;
-    localStorage.setItem('user', JSON.stringify({ email }))
+    const { email } = user;
+    localStorage.setItem('user', JSON.stringify({ email }));
     navigate('/meals');
   };
 
@@ -52,7 +46,12 @@ function Login() {
         data-testid="password-input"
         onChange={ handleChange }
       />
-      <button data-testid="login-submit-btn" disabled={ (!(isEmail(user.email)) || user.password.length <= 6) }>Enter</button>
+      <button
+        data-testid="login-submit-btn"
+        disabled={ (!(isEmail(user.email)) || user.password.length <= 6) }
+      >
+        Enter
+      </button>
     </form>
   );
 }

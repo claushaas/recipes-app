@@ -1,7 +1,6 @@
 import { screen } from '@testing-library/dom';
-// import { render } from '@testing-library/react';
-import Login from '../pages/Login';
 import userEvent from '@testing-library/user-event';
+import Login from '../pages/Login';
 import renderWithRouterAndRedux from './helpers/renderWithReduxAndRouter';
 import Meals from '../pages/Meals';
 
@@ -20,13 +19,12 @@ test('testa se os elementos estão em tela', async () => {
 
   await userEvent.type(inputEmail, 'nalther@gmail.com');
   expect(inputEmail.value).toBe('nalther@gmail.com');
-  
+
   await userEvent.type(inputPassword, '1231234');
   expect(inputPassword.value).toBe('1231234');
 
   expect(button.disabled).toBe(false);
-  
-  await userEvent.click(button);
-  renderWithRouterAndRedux(<Meals />)
 
+  await userEvent.click(button);
+  renderWithRouterAndRedux(<Meals />);
 });
