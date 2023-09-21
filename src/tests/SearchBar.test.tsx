@@ -238,8 +238,6 @@ describe('Teste do componente SearchBar', () => {
     expect(searchButton2).toBeInTheDocument();
     await user.click(searchButton2);
 
-    screen.debug();
-
     expect(window.alert).toHaveBeenCalled();
   });
 
@@ -270,8 +268,6 @@ describe('Teste do componente SearchBar', () => {
     });
     expect(searchButton2).toBeInTheDocument();
     await user.click(searchButton2);
-
-    screen.debug();
 
     expect(window.alert).toHaveBeenCalled();
   });

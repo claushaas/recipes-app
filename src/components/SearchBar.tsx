@@ -25,11 +25,6 @@ function SearchBar() {
 
   const handleFormSubmit = async (e: React.FormEvent<HTMLFormElement>) => {
     e.preventDefault();
-    // const { term, searchType } = e.currentTarget;
-
-    // if (searchType?.value === 'firstLetter' && term.value.length > 1) {
-    //   return window.alert('Your search must have only 1 (one) character');
-    // }
 
     if (location.pathname === '/meals') {
       dispatch(fetchMeals(formValues.term, formValues.searchType));
