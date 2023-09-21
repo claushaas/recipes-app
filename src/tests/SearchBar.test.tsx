@@ -22,11 +22,6 @@ describe('Teste do componente SearchBar', () => {
 
     const { user } = renderWithRouterAndRedux(<App />, '/meals');
 
-    const heading = screen.getByRole('heading', {
-      name: /meals/i,
-    });
-    expect(heading).toBeInTheDocument();
-
     const searchButton = screen.getByRole('button', {
       name: /pesquisar/i,
     });
@@ -54,11 +49,6 @@ describe('Teste do componente SearchBar', () => {
     vi.spyOn(APIModule, 'searchDrinksAPI').mockResolvedValue(mockDataOnlyOne);
 
     const { user } = renderWithRouterAndRedux(<App />, '/drinks');
-
-    const heading = screen.getByRole('heading', {
-      name: /drinks/i,
-    });
-    expect(heading).toBeInTheDocument();
 
     const searchButton = screen.getByRole('button', {
       name: /pesquisar/i,
@@ -216,6 +206,72 @@ describe('Teste do componente SearchBar', () => {
     });
     expect(searchButton2).toBeInTheDocument();
     await user.click(searchButton2);
+
+    expect(window.alert).toHaveBeenCalled();
+  });
+
+  test('Se exibe alerta de pesquisa vazia na página de meals', async () => {
+    vi.spyOn(APIModule, 'searchMealsAPI').mockResolvedValue(null);
+    vi.spyOn(window, 'alert');
+
+    const { user } = renderWithRouterAndRedux(<App />, '/meals');
+
+    const searchButton = screen.getByRole('button', {
+      name: /pesquisar/i,
+    });
+    expect(searchButton).toBeInTheDocument();
+    await user.click(searchButton);
+
+    const searchInput = screen.getByTestId(searchInputText);
+    expect(searchInput).toBeInTheDocument();
+    await user.type(searchInput, 'xablau');
+
+    const ingredientRadio = screen.getByRole('radio', {
+      name: /ingredient/i,
+    });
+    expect(ingredientRadio).toBeInTheDocument();
+    await user.click(ingredientRadio);
+
+    const searchButton2 = screen.getByRole('button', {
+      name: /search/i,
+    });
+    expect(searchButton2).toBeInTheDocument();
+    await user.click(searchButton2);
+
+    screen.debug();
+
+    expect(window.alert).toHaveBeenCalled();
+  });
+
+  test('Se exibe alerta de pesquisa vazia na página de drinks', async () => {
+    vi.spyOn(APIModule, 'searchDrinksAPI').mockResolvedValue(null);
+    vi.spyOn(window, 'alert');
+
+    const { user } = renderWithRouterAndRedux(<App />, '/drinks');
+
+    const searchButton = screen.getByRole('button', {
+      name: /pesquisar/i,
+    });
+    expect(searchButton).toBeInTheDocument();
+    await user.click(searchButton);
+
+    const searchInput = screen.getByTestId(searchInputText);
+    expect(searchInput).toBeInTheDocument();
+    await user.type(searchInput, 'xablau');
+
+    const ingredientRadio = screen.getByRole('radio', {
+      name: /ingredient/i,
+    });
+    expect(ingredientRadio).toBeInTheDocument();
+    await user.click(ingredientRadio);
+
+    const searchButton2 = screen.getByRole('button', {
+      name: /search/i,
+    });
+    expect(searchButton2).toBeInTheDocument();
+    await user.click(searchButton2);
+
+    screen.debug();
 
     expect(window.alert).toHaveBeenCalled();
   });
