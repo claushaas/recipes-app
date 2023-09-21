@@ -1,8 +1,7 @@
 import './App.css';
 import { Routes, Route } from 'react-router-dom';
 import Login from './pages/Login';
-import Meals from './pages/Meals';
-import Drinks from './pages/Drinks';
+import Recipes from './pages/Recipes';
 import MealDetails from './pages/MealDetails';
 import DrinkDetails from './pages/DrinkDetails';
 import MealProgress from './pages/MealProgress';
@@ -17,8 +16,8 @@ function App() {
   return (
     <Routes>
       <Route path="/" element={ <Login /> } />
-      <Route path="/meals" element={ <Meals /> } />
-      <Route path="/drinks" element={ <Drinks /> } />
+      <Route path="/meals" element={ <Recipes /> } />
+      <Route path="/drinks" element={ <Recipes /> } />
       <Route path="/meals/:id-da-receita" element={ <MealDetails /> } />
       <Route path="/drinks/:id-da-receita" element={ <DrinkDetails /> } />
       <Route path="/meals/:id-da-receita/in-progress" element={ <MealProgress /> } />
