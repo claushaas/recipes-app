@@ -10,8 +10,6 @@ import DrinkProgress from './pages/DrinkProgress';
 import Profile from './pages/Profile';
 import DoneRecipies from './pages/DoneRecipies';
 import FavoriteRecipies from './pages/FavoriteRecipies';
-// import rockGlass from './images/rockGlass.svg';
-// import 'bootstrap/dist/css/bootstrap.min.css';
 
 function App() {
   return (
