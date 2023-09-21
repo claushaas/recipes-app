@@ -14,6 +14,8 @@ afterEach(() => {
   vi.restoreAllMocks();
 });
 
+const searchInputText = 'search-input';
+
 describe('Teste do componente SearchBar', () => {
   test('Se a pesquisa por ingrediente encaminha com resposta única para meals', async () => {
     vi.spyOn(APIModule, 'searchMealsAPI').mockResolvedValue(mockDataOnlyOne);
@@ -31,7 +33,7 @@ describe('Teste do componente SearchBar', () => {
     expect(searchButton).toBeInTheDocument();
     await user.click(searchButton);
 
-    const searchInput = screen.getByTestId('search-input');
+    const searchInput = screen.getByTestId(searchInputText);
     expect(searchInput).toBeInTheDocument();
     await user.type(searchInput, 'chicken');
 
@@ -64,7 +66,7 @@ describe('Teste do componente SearchBar', () => {
     expect(searchButton).toBeInTheDocument();
     await user.click(searchButton);
 
-    const searchInput = screen.getByTestId('search-input');
+    const searchInput = screen.getByTestId(searchInputText);
     expect(searchInput).toBeInTheDocument();
     await user.type(searchInput, 'chicken');
 
@@ -97,7 +99,7 @@ describe('Teste do componente SearchBar', () => {
     expect(searchButton).toBeInTheDocument();
     await user.click(searchButton);
 
-    const searchInput = screen.getByTestId('search-input');
+    const searchInput = screen.getByTestId(searchInputText);
     expect(searchInput).toBeInTheDocument();
     await user.type(searchInput, 'chicken');
 
@@ -133,7 +135,7 @@ describe('Teste do componente SearchBar', () => {
     expect(searchButton).toBeInTheDocument();
     await user.click(searchButton);
 
-    const searchInput = screen.getByTestId('search-input');
+    const searchInput = screen.getByTestId(searchInputText);
     expect(searchInput).toBeInTheDocument();
     await user.type(searchInput, 'chicken');
 
@@ -169,7 +171,7 @@ describe('Teste do componente SearchBar', () => {
     expect(searchButton).toBeInTheDocument();
     await user.click(searchButton);
 
-    const searchInput = screen.getByTestId('search-input');
+    const searchInput = screen.getByTestId(searchInputText);
     expect(searchInput).toBeInTheDocument();
     await user.type(searchInput, 'chicken');
 
@@ -204,7 +206,7 @@ describe('Teste do componente SearchBar', () => {
     expect(searchButton).toBeInTheDocument();
     await user.click(searchButton);
 
-    const searchInput = screen.getByTestId('search-input');
+    const searchInput = screen.getByTestId(searchInputText);
     expect(searchInput).toBeInTheDocument();
     await user.type(searchInput, 'chicken');
 
