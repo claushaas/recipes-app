@@ -6,10 +6,6 @@ import * as APIModule from '../services/searchAPI';
 import renderWithRouterAndRedux from './helpers/renderWithReduxAndRouter';
 import mockData, { mockDataOnlyOne } from './mock/mockData';
 
-// beforeEach(() => {
-
-// });
-
 afterEach(() => {
   vi.restoreAllMocks();
 });
