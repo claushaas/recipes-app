@@ -10,7 +10,7 @@ export const searchMealsAPI = async (term: string, searchType: string) => {
     response = await fetch(`https://www.themealdb.com/api/json/v1/1/search.php?f=${term}`);
   }
   const data = await response?.json();
-  return data.meals;
+  return data && data.meals;
 };
 
 export const searchDrinksAPI = async (term: string, searchType: string) => {

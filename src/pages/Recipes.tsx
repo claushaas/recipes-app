@@ -2,12 +2,12 @@ import { useLocation } from 'react-router-dom';
 import { useSelector } from 'react-redux';
 import Header from '../components/Header';
 import RecipeCard from '../components/RecipeCard';
-import { Drink, Meal } from '../types';
+import { Drink, Meal, ReduxState } from '../types';
 
 function Recipes() {
   const { pathname } = useLocation();
 
-  const { meals, drinks } = useSelector((state) => state);
+  const { meals, drinks } = useSelector((state: ReduxState) => state);
 
   const title = pathname === '/meals' ? 'Meals' : 'Drinks';
   return (
@@ -17,7 +17,7 @@ function Recipes() {
         showSearch
         showProfile
       />
-      {pathname === '/meals' && meals.meals.slice(0, 12)
+      {pathname === '/meals' && meals.meals?.slice(0, 12)
         .map((meal: Meal, index: number) => (
           <RecipeCard
             key={ index }
@@ -26,7 +26,7 @@ function Recipes() {
             name={ meal.strMeal }
           />
         ))}
-      {pathname === '/drinks' && drinks.drinks.slice(0, 12)
+      {pathname === '/drinks' && drinks.drinks?.slice(0, 12)
         .map((drink: Drink, index: number) => (
           <RecipeCard
             key={ index }

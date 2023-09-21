@@ -1,11 +1,12 @@
 import { useLocation, useNavigate } from 'react-router-dom';
 
 import { useDispatch, useSelector } from 'react-redux';
-import { useEffect } from 'react';
+import { useEffect, useState } from 'react';
 import { fetchDrinks, fetchMeals } from '../redux/actions';
 import { ReduxState } from '../types';
 
 function SearchBar() {
+  const [searched, setSearched] = useState(false);
   const location = useLocation();
   const dispatch = useDispatch();
   const { meals, drinks } = useSelector((state: ReduxState) => state);
@@ -15,28 +16,39 @@ function SearchBar() {
     e.preventDefault();
     const { term, searchType } = e.currentTarget;
 
-    if (searchType.value === 'firstLetter' && term.value.length > 1) {
+    if (searchType?.value === 'firstLetter' && term.value.length > 1) {
       return window.alert('Your search must have only 1 (one) character');
     }
     if (location.pathname === '/meals') {
-      dispatch(fetchMeals(term.value, searchType.value));
+      dispatch(fetchMeals(term?.value, searchType?.value));
     }
 
     if (location.pathname === '/drinks') {
-      dispatch(fetchDrinks(term.value, searchType.value));
+      dispatch(fetchDrinks(term?.value, searchType?.value));
     }
+
+    setSearched(true);
   };
 
   useEffect(() => {
-    console.log(meals.meals.length);
-    if (meals.meals.length === 1) {
+    if (meals.meals?.length === 1) {
       navigate(`/meals/${meals.meals[0].idMeal}`);
     }
 
-    if (drinks.drinks.length === 1) {
+    if (!meals.meals && searched) {
+      window.alert('Sorry, we haven\'t found any recipes for these filters.');
+      setSearched(false);
+    }
+
+    if (drinks.drinks?.length === 1) {
       navigate(`/drinks/${drinks.drinks[0].idDrink}`);
     }
-  }, [meals, drinks, navigate]);
+
+    if (!drinks.drinks && searched) {
+      window.alert('Sorry, we haven\'t found any recipes for these filters.');
+      setSearched(false);
+    }
+  }, [meals, drinks, navigate, searched]);
 
   return (
     <form onSubmit={ handleFormSubmit }>
