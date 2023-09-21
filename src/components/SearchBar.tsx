@@ -1,17 +1,40 @@
-// import { useLocation } from 'react-router-dom';
+import { useLocation } from 'react-router-dom';
+
+import { useDispatch } from 'react-redux';
+import { fetchDrinks, fetchMeals } from '../redux/actions';
 
 function SearchBar() {
-  // const location = useLocation();
+  const location = useLocation();
   // console.log(location.pathname);
+  const dispatch = useDispatch();
+
+  const handleFormSubmit = async (e: React.FormEvent<HTMLFormElement>) => {
+    e.preventDefault();
+    const { term, searchType } = e.currentTarget;
+
+    if (searchType.value === 'firstLetter' && term.value.length > 1) {
+      return window.alert('Your search must have only 1 (one) character');
+    }
+    if (location.pathname === '/meals') {
+      dispatch(fetchMeals(term.value, searchType.value));
+    }
+
+    if (location.pathname === '/drinks') {
+      dispatch(fetchDrinks(term.value, searchType.value));
+    }
+  };
+
   return (
-    <form>
+    <form onSubmit={ handleFormSubmit }>
       <input type="text" name="term" id="term" data-testid="search-input" />
       <label htmlFor="ingredient">
         <input
           data-testid="ingredient-search-radio"
           id="ingredient"
-          name="ingredient"
+          value="ingredient"
           type="radio"
+          name="searchType"
+          required
         />
         Ingredient
       </label>
@@ -19,8 +42,9 @@ function SearchBar() {
         <input
           data-testid="name-search-radio"
           id="name"
-          name="name"
+          value="name"
           type="radio"
+          name="searchType"
         />
         Name
       </label>
@@ -28,8 +52,9 @@ function SearchBar() {
         <input
           data-testid="first-letter-search-radio"
           id="firstLetter"
-          name="firstLetter"
+          value="firstLetter"
           type="radio"
+          name="searchType"
         />
         First Letter
       </label>
