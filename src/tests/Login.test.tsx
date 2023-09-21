@@ -2,7 +2,7 @@ import { screen } from '@testing-library/dom';
 import userEvent from '@testing-library/user-event';
 import Login from '../pages/Login';
 import renderWithRouterAndRedux from './helpers/renderWithReduxAndRouter';
-import Meals from '../pages/Meals';
+import Meals from '../pages/Recipes';
 
 test('testa se os elementos estão em tela', async () => {
   renderWithRouterAndRedux(<Login />);
