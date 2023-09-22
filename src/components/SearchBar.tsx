@@ -20,16 +20,13 @@ function SearchBar() {
   const [searched, setSearched] = useState(false);
   const location = useLocation();
   const dispatch = useDispatch();
-  const { meals, drinks } = useSelector((state: ReduxState) => state);
+  // const { meals, drinks } = useSelector((state: ReduxState) => state);
+  const meals = useSelector((state: ReduxState) => state.meals);
+  const drinks = useSelector((state: ReduxState) => state.drinks);
   const navigate = useNavigate();
 
   const handleFormSubmit = async (e: React.FormEvent<HTMLFormElement>) => {
     e.preventDefault();
-    // const { term, searchType } = e.currentTarget;
-
-    // if (searchType?.value === 'firstLetter' && term.value.length > 1) {
-    //   return window.alert('Your search must have only 1 (one) character');
-    // }
 
     if (location.pathname === '/meals') {
       dispatch(fetchMeals(formValues.term, formValues.searchType));
