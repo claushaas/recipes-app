@@ -1,6 +1,7 @@
 import { useLocation } from 'react-router-dom';
 import { useSelector } from 'react-redux';
 import Header from '../components/Header';
+import Footer from '../components/Footer';
 import RecipeCard from '../components/RecipeCard';
 import { Drink, Meal, ReduxState } from '../types';
 
@@ -35,7 +36,7 @@ function Recipes() {
             name={ drink.strDrink }
           />
         ))}
-
+      <Footer />
     </>
   );
 }
