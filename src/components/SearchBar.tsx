@@ -20,7 +20,9 @@ function SearchBar() {
   const [searched, setSearched] = useState(false);
   const location = useLocation();
   const dispatch = useDispatch();
-  const { meals, drinks } = useSelector((state: ReduxState) => state);
+  // const { meals, drinks } = useSelector((state: ReduxState) => state);
+  const meals = useSelector((state: ReduxState) => state.meals);
+  const drinks = useSelector((state: ReduxState) => state.drinks);
   const navigate = useNavigate();
 
   const handleFormSubmit = async (e: React.FormEvent<HTMLFormElement>) => {
