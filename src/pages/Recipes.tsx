@@ -9,7 +9,9 @@ function Recipes() {
   const { pathname } = useLocation();
   const dispatch = useDispatch();
 
-  const { meals, drinks } = useSelector((state: ReduxState) => state);
+  // const { meals, drinks } = useSelector((state: ReduxState) => state);
+  const meals = useSelector((state: ReduxState) => state.meals);
+  const drinks = useSelector((state: ReduxState) => state.drinks);
 
   const title = pathname === '/meals' ? 'Meals' : 'Drinks';
 
