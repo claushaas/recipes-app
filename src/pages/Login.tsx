@@ -23,7 +23,7 @@ function Login() {
 
   const handleSubmit = () => {
     const { email } = user;
-    localStorage.setItem('user', JSON.stringify({ email }));
+    localStorage.setItem('user', JSON.stringify(email));
     navigate('/meals');
   };
 

@@ -3,7 +3,6 @@ import Header from '../components/Header';
 
 function Profile() {
   const emailUser = localStorage.getItem('user');
-  console.log(emailUser);
 
   const navigate = useNavigate();
   const handleClickRecipes = () => {
