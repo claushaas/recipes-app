@@ -142,7 +142,7 @@ describe('Teste do componente SearchBar', () => {
   });
 
   test('Se a pesquisa por primeira letra falha com mais de uma letra na página de meals', async () => {
-    vi.spyOn(window, 'alert');
+    vi.spyOn(global, 'alert');
 
     const { user } = renderWithRouterAndRedux(<App />, '/meals');
 
@@ -173,11 +173,11 @@ describe('Teste do componente SearchBar', () => {
     expect(searchButton2).toBeInTheDocument();
     await user.click(searchButton2);
 
-    expect(window.alert).toHaveBeenCalled();
+    expect(global.alert).toHaveBeenCalled();
   });
 
   test('Se a pesquisa por primeira letra falha com mais de uma letra na página de drinks', async () => {
-    vi.spyOn(window, 'alert');
+    vi.spyOn(global, 'alert');
 
     const { user } = renderWithRouterAndRedux(<App />, '/drinks');
 
@@ -203,12 +203,12 @@ describe('Teste do componente SearchBar', () => {
     expect(searchButton2).toBeInTheDocument();
     await user.click(searchButton2);
 
-    expect(window.alert).toHaveBeenCalled();
+    expect(global.alert).toHaveBeenCalled();
   });
 
   test('Se exibe alerta de pesquisa vazia na página de meals', async () => {
     vi.spyOn(APIModule, 'searchMealsAPI').mockResolvedValue(null);
-    vi.spyOn(window, 'alert');
+    vi.spyOn(global, 'alert');
 
     const { user } = renderWithRouterAndRedux(<App />, '/meals');
 
@@ -234,12 +234,12 @@ describe('Teste do componente SearchBar', () => {
     expect(searchButton2).toBeInTheDocument();
     await user.click(searchButton2);
 
-    expect(window.alert).toHaveBeenCalled();
+    expect(global.alert).toHaveBeenCalled();
   });
 
   test('Se exibe alerta de pesquisa vazia na página de drinks', async () => {
     vi.spyOn(APIModule, 'searchDrinksAPI').mockResolvedValue(null);
-    vi.spyOn(window, 'alert');
+    vi.spyOn(global, 'alert');
 
     const { user } = renderWithRouterAndRedux(<App />, '/drinks');
 
@@ -265,6 +265,6 @@ describe('Teste do componente SearchBar', () => {
     expect(searchButton2).toBeInTheDocument();
     await user.click(searchButton2);
 
-    expect(window.alert).toHaveBeenCalled();
+    expect(global.alert).toHaveBeenCalled();
   });
 });
