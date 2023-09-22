@@ -12,8 +12,12 @@ const getMeals = (data: Meals) => ({
 export const fetchMeals = (term: string, searchType: string) => async (
   dispatch: Dispatch,
 ) => {
-  const data = await searchMealsAPI(term, searchType);
-  dispatch(getMeals(data));
+  try {
+    const data = await searchMealsAPI(term, searchType);
+    dispatch(getMeals(data));
+  } catch (error) {
+    console.log(error);
+  }
 };
 
 const getDrinks = (data: Drinks) => ({
