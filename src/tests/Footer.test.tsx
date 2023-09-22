@@ -3,34 +3,30 @@ import App from '../App';
 
 import renderWithRouterAndRedux from './helpers/renderWithReduxAndRouter';
 
-describe('Teste do componente Footer', () => {
-  test('Se o Footer aparece na tela', async () => {
-    const { user } = renderWithRouterAndRedux(<App />, '/profile');
+test('Testa se o footer aparece na tela', async () => {
+  renderWithRouterAndRedux(<App />, '/profile');
 
-    const meal = screen.getByRole('img', {
-      name: /meal icon/i,
-    });
+  const footer = screen.getByTestId('footer');
+  expect(footer).toBeInTheDocument();
+});
 
-    expect(meal).toBeInTheDocument();
-
-    const drink = screen.getByRole('img', {
-      name: /drink icon/i,
-    });
-
-    expect(drink).toBeInTheDocument();
-
-    await user.click(drink);
-
-    const drinkText = screen.getByRole('heading', {
-      name: /drinks/i,
-    });
-    expect(drinkText).toBeInTheDocument();
-
-    await user.click(meal);
-
-    const mealText = screen.getByRole('heading', {
-      name: /meals/i,
-    });
-    expect(mealText).toBeInTheDocument();
+test('Testa a presença do ícone de Drinks e do H1 na tela devida', async () => {
+  const { user } = renderWithRouterAndRedux(<App />, '/profile');
+  const drink = screen.getByTestId('drinks-bottom-btn');
+  expect(drink).toBeInTheDocument();
+  await user.click(drink);
+  const drinksH1 = screen.getByRole('heading', {
+    name: /drinks/i,
   });
+  expect(drinksH1).toBeInTheDocument();
+});
+test('Testa a presença do ícone de Meals e do H1 na tela devida', async () => {
+  const { user } = renderWithRouterAndRedux(<App />, '/profile');
+  const meal = screen.getByTestId('meals-bottom-btn');
+  expect(meal).toBeInTheDocument();
+  await user.click(meal);
+  const mealsH1 = screen.getByRole('heading', {
+    name: /meals/i,
+  });
+  expect(mealsH1).toBeInTheDocument();
 });
