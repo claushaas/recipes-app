@@ -7,7 +7,9 @@ import { Drink, Meal, ReduxState } from '../types';
 function Recipes() {
   const { pathname } = useLocation();
 
-  const { meals, drinks } = useSelector((state: ReduxState) => state);
+  // const { meals, drinks } = useSelector((state: ReduxState) => state);
+  const meals = useSelector((state: ReduxState) => state.meals);
+  const drinks = useSelector((state: ReduxState) => state.drinks);
 
   const title = pathname === '/meals' ? 'Meals' : 'Drinks';
   return (

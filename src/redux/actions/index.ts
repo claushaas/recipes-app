@@ -24,6 +24,10 @@ const getDrinks = (data: Drinks) => ({
 export const fetchDrinks = (term: string, searchType: string) => async (
   dispatch: Dispatch,
 ) => {
-  const data = await searchDrinksAPI(term, searchType);
-  dispatch(getDrinks(data));
+  try {
+    const data = await searchDrinksAPI(term, searchType);
+    dispatch(getDrinks(data));
+  } catch (error) {
+    console.log(error);
+  }
 };
