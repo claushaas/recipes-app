@@ -15,7 +15,7 @@ function Recipes() {
 
   useEffect(() => {
     const mealsAPI = async () => {
-      const URL = 'https://www.themealdb.com/api/json/v1/1/search.php?s';
+      const URL = 'https://www.themealdb.com/api/json/v1/1/search.php?s=';
       const response = await fetch(URL);
       const data = await response.json();
 
@@ -28,7 +28,7 @@ function Recipes() {
     mealsAPI();
 
     const drinksAPI = async () => {
-      const URL = 'https://www.thecocktaildb.com/api/json/v1/1/search.php?s';
+      const URL = 'https://www.thecocktaildb.com/api/json/v1/1/search.php?s=';
       const response = await fetch(URL);
       const data = await response.json();
 
