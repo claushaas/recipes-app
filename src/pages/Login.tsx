@@ -8,7 +8,6 @@ const INITIAL_LOGIN = {
 };
 
 function Login() {
-  // const [disable, setDisable] = useState(true);
   const [user, setUser] = useState(INITIAL_LOGIN);
 
   const handleChange = (event: React.ChangeEvent<HTMLInputElement>) => {
