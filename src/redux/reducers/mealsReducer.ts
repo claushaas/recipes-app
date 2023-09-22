@@ -2,13 +2,7 @@ import { AnyAction } from 'redux';
 import { SET_MEALS } from '../actions';
 
 const INITIAL_STATE = {
-  meals: [
-    // {
-    //   strMeal: 'Corba',
-    //   strMealThumb: 'https://www.themealdb.com/images/media/meals/58oia61564916529.jpg',
-    //   idMeal: '52977',
-    // },
-  ],
+  meals: [],
 };
 
 const mealsReducer = (state = INITIAL_STATE, action: AnyAction) => {
