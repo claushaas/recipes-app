@@ -2,6 +2,7 @@ import { useLocation } from 'react-router-dom';
 import { useDispatch, useSelector } from 'react-redux';
 import { useEffect } from 'react';
 import Header from '../components/Header';
+import Footer from '../components/Footer';
 import RecipeCard from '../components/RecipeCard';
 import { Drink, Meal, ReduxState } from '../types';
 
@@ -68,7 +69,7 @@ function Recipes() {
             name={ drink.strDrink }
           />
         ))}
-
+      <Footer />
     </>
   );
 }
