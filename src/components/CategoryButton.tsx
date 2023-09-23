@@ -1,4 +1,5 @@
 import { useEffect, useState } from 'react';
+import { useLocation } from 'react-router-dom';
 
 type CategoryMealType = {
   strCategory: string;
@@ -11,6 +12,8 @@ type CategoryDrinkType = {
 function CategoryButton() {
   const [categoryMeal, setCategoryMeal] = useState<CategoryMealType[]>([]);
   const [categoryDrink, setCategoryDrink] = useState<CategoryDrinkType[]>([]);
+
+  const { pathname } = useLocation();
 
   useEffect(() => {
     const mealsAPI = async () => {
@@ -36,25 +39,27 @@ function CategoryButton() {
 
   return (
     <div>
-      {categoryMeal.map((category: CategoryMealType, index: number) => (
-        <button
-          type="button"
-          key={ index }
-          data-testid={ `${category.strCategory}-category-filter` }
-        >
-          {category.strCategory}
-        </button>
-      ))}
+      {pathname === '/meals' && categoryMeal?.slice(0, 5)
+        .map((category: CategoryMealType, index: number) => (
+          <button
+            type="button"
+            key={ index }
+            data-testid={ `${category.strCategory}-category-filter` }
+          >
+            {category.strCategory}
+          </button>
+        ))}
 
-      {categoryDrink.map((category: CategoryMealType, index: number) => (
-        <button
-          type="button"
-          key={ index }
-          data-testid={ `${category.strCategory}-category-filter` }
-        >
-          {category.strCategory}
-        </button>
-      ))}
+      {pathname === '/drinks' && categoryDrink?.slice(0, 5)
+        .map((category: CategoryDrinkType, index: number) => (
+          <button
+            type="button"
+            key={ index }
+            data-testid={ `${category.strCategory}-category-filter` }
+          >
+            {category.strCategory}
+          </button>
+        ))}
     </div>
   );
 }
