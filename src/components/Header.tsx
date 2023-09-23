@@ -3,6 +3,7 @@ import { useState } from 'react';
 import searchIcon from '../images/searchIcon.svg';
 import profileIcon from '../images/profileIcon.svg';
 import SearchBar from './SearchBar';
+import CategoryButton from './CategoryButton';
 
 type HeaderProps = {
   title: string;
@@ -44,6 +45,7 @@ function Header({ title, showSearch, showProfile }: HeaderProps) {
         </button>
       )}
       {showSearchBar && <SearchBar />}
+      <CategoryButton />
     </header>
   );
 }
