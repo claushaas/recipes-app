@@ -1,4 +1,4 @@
-import { useEffect, useState } from 'react';
+import { useState } from 'react';
 import { MealDetails } from '../types';
 
 type IngredientListProps = {
@@ -10,7 +10,21 @@ function IngredientList({ recipe }: IngredientListProps) {
   const actualInProgressRecipe = lCInProgressRecipe
     && lCInProgressRecipe[recipe.idMeal || recipe.idDrink];
 
-  const [formValues, setFormValues] = useState(actualInProgressRecipe || {});
+  const ingredientsKeys = Object.keys(recipe).filter((key) => {
+    return key.includes('strIngredient') && recipe[key] !== '' && recipe[key] !== null;
+  });
+
+  const INITIAL_STATE = ingredientsKeys.reduce(
+    (acc, ingredient) => {
+      return {
+        ...acc,
+        [ingredient]: actualInProgressRecipe ? actualInProgressRecipe[ingredient] : false,
+      };
+    },
+    {},
+  );
+
+  const [formValues, setFormValues] = useState(actualInProgressRecipe || INITIAL_STATE);
   const ingredients = Object.entries(recipe).filter((entry) => {
     return entry[0].includes('strIngredient') && entry[1] !== '' && entry[1] !== null;
   });
@@ -43,32 +57,39 @@ function IngredientList({ recipe }: IngredientListProps) {
 
       return newState;
     });
+  };
 
-    // const inProgressRecipes = JSON.parse(localStorage.getItem('inProgressRecipes'))
+  const handleSubmit = (event: React.FormEvent<HTMLFormElement>) => {
+    event.preventDefault();
+  };
+
+  const enableFinishRecipeButton = () => {
+    return formValues && Object.values(formValues).every((value) => value === true);
   };
 
   return (
     <div>
-      <form>
+      <form
+        onSubmit={ handleSubmit }
+      >
         {
           ingredients?.map((ingredient, index) => {
             return (
               <div key={ index }>
                 <label
-                  htmlFor={ `ingredient-${index}` }
+                  htmlFor={ ingredient[0] }
                   data-testid={ `${index}-ingredient-step` }
-                  style={ { textDecoration: formValues[`ingredient-${index}`]
+                  style={ { textDecoration: formValues[ingredient[0]]
                     ? 'line-through' : 'none' } }
                 >
                   <input
                     type="checkbox"
-                    name={ `ingredient-${index}` }
+                    name={ ingredient[0] }
                     onChange={ handleChange }
-                    checked={ formValues[`ingredient-${index}`] }
+                    checked={ formValues[ingredient[0]] }
                   />
                   <span
                     data-testid={ `${index}-ingredient-name-and-measure` }
-
                   >
                     {`${ingredient[1]} - `}
                     {`${recipe[`strMeasure${index + 1}`]}`}
@@ -77,7 +98,14 @@ function IngredientList({ recipe }: IngredientListProps) {
               </div>
             );
           })
-          }
+        }
+        <button
+          disabled={ !enableFinishRecipeButton() }
+          data-testid="finish-recipe-btn"
+          type="submit"
+        >
+          Finish Recipe
+        </button>
       </form>
     </div>
   );

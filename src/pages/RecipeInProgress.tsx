@@ -45,7 +45,6 @@ function MealProgress() {
       </p>
       <p data-testid="instructions">Instruções</p>
       {(recipe.idMeal || recipe.idDrink) && <IngredientList recipe={ recipe } />}
-      <button data-testid="finish-recipe-btn">Finalizar</button>
     </div>
   );
 }
