@@ -34,4 +34,9 @@ export type MealDetails = {
   strCategory: string;
   idMeal: string;
   idDrink: string;
+  strArea: string;
+  strAlcoholic: string;
+  strDrink: string;
+  strDrinkThumb: string;
+  strTags: string;
 };

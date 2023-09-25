@@ -1,4 +1,5 @@
 import { useState } from 'react';
+import { useNavigate } from 'react-router-dom';
 import { MealDetails } from '../types';
 
 type IngredientListProps = {
@@ -6,6 +7,7 @@ type IngredientListProps = {
 };
 
 function IngredientList({ recipe }: IngredientListProps) {
+  const navigate = useNavigate();
   const lCInProgressRecipe = JSON.parse(localStorage.getItem('inProgressRecipes'));
   const actualInProgressRecipe = lCInProgressRecipe
     && lCInProgressRecipe[recipe.idMeal || recipe.idDrink];
@@ -61,6 +63,36 @@ function IngredientList({ recipe }: IngredientListProps) {
 
   const handleSubmit = (event: React.FormEvent<HTMLFormElement>) => {
     event.preventDefault();
+    const doneRecipes = JSON.parse(localStorage.getItem('doneRecipes'));
+
+    const doneRecipe = {
+      id: recipe.idMeal || recipe.idDrink,
+      type: recipe.idMeal ? 'meal' : 'drink',
+      nationality: recipe.strArea || '',
+      category: recipe.strCategory || '',
+      alcoholicOrNot: recipe.strAlcoholic || '',
+      name: recipe.strMeal || recipe.strDrink,
+      image: recipe.strMealThumb || recipe.strDrinkThumb,
+      doneDate: new Date(),
+      tags: recipe.strTags ? recipe.strTags.split(',') : [],
+    };
+
+    console.log(doneRecipe);
+
+    let newDoneRecipes = [];
+    if (doneRecipes) {
+      newDoneRecipes = [
+        ...doneRecipes,
+        doneRecipe,
+      ];
+    } else {
+      newDoneRecipes = [
+        doneRecipe,
+      ];
+    }
+
+    localStorage.setItem('doneRecipes', JSON.stringify(newDoneRecipes));
+    navigate('/done-recipes');
   };
 
   const enableFinishRecipeButton = () => {
