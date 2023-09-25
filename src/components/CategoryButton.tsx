@@ -1,4 +1,5 @@
 import { useEffect, useState } from 'react';
+import { useDispatch } from 'react-redux';
 import { useLocation } from 'react-router-dom';
 
 type CategoryMealType = {
@@ -14,6 +15,29 @@ function CategoryButton() {
   const [categoryDrink, setCategoryDrink] = useState<CategoryDrinkType[]>([]);
 
   const { pathname } = useLocation();
+  const dispatch = useDispatch();
+
+  const filterByCategoryMeal = async (category: string) => {
+    const URL = `https://www.themealdb.com/api/json/v1/1/filter.php?c=${category}`;
+    const response = await fetch(URL);
+    const data = await response.json();
+
+    dispatch({
+      type: 'SET_MEALS',
+      payload: data.meals,
+    });
+  };
+
+  const filterByCategoryDrink = async (category: string) => {
+    const URL = `https://www.themealdb.com/api/json/v1/1/filter.php?c=${category}`;
+    const response = await fetch(URL);
+    const data = await response.json();
+
+    dispatch({
+      type: 'SET_DRINKS',
+      payload: data.drinks,
+    });
+  };
 
   useEffect(() => {
     const mealsAPI = async () => {
@@ -51,6 +75,7 @@ function CategoryButton() {
             type="button"
             key={ index }
             data-testid={ `${category.strCategory}-category-filter` }
+            onClick={ () => filterByCategoryMeal(category.strCategory) }
           >
             {category.strCategory}
           </button>
@@ -62,6 +87,7 @@ function CategoryButton() {
             type="button"
             key={ index }
             data-testid={ `${category.strCategory}-category-filter` }
+            onClick={ () => filterByCategoryDrink(category.strCategory) }
           >
             {category.strCategory}
           </button>
