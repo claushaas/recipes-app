@@ -2,12 +2,12 @@ import { useEffect, useState } from 'react';
 import { useLocation, useParams } from 'react-router-dom';
 
 import { MealDetails } from '../types';
+import IngredientList from '../components/IngredientList';
 
 function MealProgress() {
   const [recipe, setRecipe] = useState({} as MealDetails);
   const { id } = useParams();
   const { pathname } = useLocation();
-  console.log(id);
 
   useEffect(() => {
     const fetchRecipe = async () => {
@@ -19,13 +19,11 @@ function MealProgress() {
       }
       const response = await fetch(URL);
       const data = await response.json();
-      console.log(data);
       if (pathname.includes('meals')) {
         setRecipe(data.meals[0]);
       } else {
         setRecipe(data.drinks[0]);
       }
-      console.log(recipe);
     };
 
     fetchRecipe();
@@ -46,6 +44,7 @@ function MealProgress() {
         {recipe.strCategory}
       </p>
       <p data-testid="instructions">Instruções</p>
+      <IngredientList recipe={ recipe } />
       <button data-testid="finish-recipe-btn">Finalizar</button>
     </div>
   );
