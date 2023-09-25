@@ -39,6 +39,12 @@ function CategoryButton() {
 
   return (
     <div>
+      <button
+        data-testid="All-category-filter"
+      >
+        All
+      </button>
+
       {pathname === '/meals' && categoryMeal?.slice(0, 5)
         .map((category: CategoryMealType, index: number) => (
           <button
