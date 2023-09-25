@@ -13,30 +13,46 @@ type CategoryDrinkType = {
 function CategoryButton() {
   const [categoryMeal, setCategoryMeal] = useState<CategoryMealType[]>([]);
   const [categoryDrink, setCategoryDrink] = useState<CategoryDrinkType[]>([]);
+  const [toggleMeal, setToggleMeal] = useState<boolean>(false);
+  const [toggleDrink, setToggleDrink] = useState<boolean>(false);
 
   const { pathname } = useLocation();
   const dispatch = useDispatch();
 
-  const filterByCategoryMeal = async (category: string) => {
-    const URL = `https://www.themealdb.com/api/json/v1/1/filter.php?c=${category}`;
-    const response = await fetch(URL);
-    const data = await response.json();
+  const filterByCategoryMeal = async (category: string, toggle: boolean) => {
+    setToggleMeal(toggle);
 
-    dispatch({
-      type: 'SET_MEALS',
-      payload: data.meals,
-    });
+    if (toggle === true) {
+      const URL = `https://www.themealdb.com/api/json/v1/1/filter.php?c=${category}`;
+      const response = await fetch(URL);
+      const data = await response.json();
+
+      dispatch({
+        type: 'SET_MEALS',
+        payload: data.meals,
+      });
+    }
+    if (toggle === false) {
+      mealsAPI();
+    }
   };
 
-  const filterByCategoryDrink = async (category: string) => {
-    const URL = `https://www.thecocktaildb.com/api/json/v1/1/filter.php?c=${category}`;
-    const response = await fetch(URL);
-    const data = await response.json();
+  const filterByCategoryDrink = async (category: string, toggle: boolean) => {
+    setToggleDrink(toggle);
 
-    dispatch({
-      type: 'SET_DRINKS',
-      payload: data.drinks,
-    });
+    if (toggle === true) {
+      const URL = `https://www.thecocktaildb.com/api/json/v1/1/filter.php?c=${category}`;
+      const response = await fetch(URL);
+      const data = await response.json();
+
+      dispatch({
+        type: 'SET_DRINKS',
+        payload: data.drinks,
+      });
+    }
+    if (toggle === false) {
+      drinksAPI();
+    }
   };
 
   const mealsCategoryButtons = async () => {
@@ -97,7 +113,7 @@ function CategoryButton() {
             type="button"
             key={ index }
             data-testid={ `${category.strCategory}-category-filter` }
-            onClick={ () => filterByCategoryMeal(category.strCategory) }
+            onClick={ () => filterByCategoryMeal(category.strCategory, !toggleMeal) }
           >
             {category.strCategory}
           </button>
@@ -109,7 +125,7 @@ function CategoryButton() {
             type="button"
             key={ index }
             data-testid={ `${category.strCategory}-category-filter` }
-            onClick={ () => filterByCategoryDrink(category.strCategory) }
+            onClick={ () => filterByCategoryDrink(category.strCategory, !toggleDrink) }
           >
             {category.strCategory}
           </button>
