@@ -32,4 +32,6 @@ export type MealDetails = {
   strMealThumb: string;
   strMeal: string;
   strCategory: string;
+  idMeal: string;
+  idDrink: string;
 };

@@ -27,7 +27,7 @@ function MealProgress() {
     };
 
     fetchRecipe();
-  }, []);
+  }, [id, pathname]);
   return (
     <div>
       <img
@@ -44,7 +44,7 @@ function MealProgress() {
         {recipe.strCategory}
       </p>
       <p data-testid="instructions">Instruções</p>
-      <IngredientList recipe={ recipe } />
+      {(recipe.idMeal || recipe.idDrink) && <IngredientList recipe={ recipe } />}
       <button data-testid="finish-recipe-btn">Finalizar</button>
     </div>
   );
