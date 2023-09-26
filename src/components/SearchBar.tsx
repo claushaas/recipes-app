@@ -1,9 +1,9 @@
 import { useLocation, useNavigate } from 'react-router-dom';
-
 import { useDispatch, useSelector } from 'react-redux';
 import { useEffect, useState } from 'react';
 import { fetchDrinks, fetchMeals } from '../redux/actions';
 import { ReduxState } from '../types';
+import '../styles/searchBar.css';
 
 type FormValuesTypes = {
   term: string;
@@ -80,7 +80,7 @@ function SearchBar() {
   };
 
   return (
-    <form onSubmit={ handleFormSubmit }>
+    <form onSubmit={ handleFormSubmit } id="searchBarForm">
       <input
         type="text"
         name="term"
@@ -88,47 +88,50 @@ function SearchBar() {
         data-testid="search-input"
         onChange={ handleChange }
         value={ formValues.term }
+        placeholder="Search"
       />
-      <label htmlFor="ingredient">
-        <input
-          data-testid="ingredient-search-radio"
-          id="ingredient"
-          value="ingredient"
-          type="radio"
-          name="searchType"
-          required
-          checked={ formValues.searchType === 'ingredient' }
-          onChange={ handleChange }
-        />
-        Ingredient
-      </label>
-      <label htmlFor="name">
-        <input
-          data-testid="name-search-radio"
-          id="name"
-          value="name"
-          type="radio"
-          name="searchType"
-          required
-          checked={ formValues.searchType === 'name' }
-          onChange={ handleChange }
-        />
-        Name
-      </label>
-      <label htmlFor="firstLetter">
-        <input
-          data-testid="first-letter-search-radio"
-          id="firstLetter"
-          value="firstLetter"
-          type="radio"
-          name="searchType"
-          required
-          checked={ formValues.searchType === 'firstLetter' }
-          onChange={ handleChange }
-        />
-        First Letter
-      </label>
-      <button type="submit" data-testid="exec-search-btn">
+      <div id="div-input">
+        <label htmlFor="ingredient" id="input-ingredient">
+          <input
+            data-testid="ingredient-search-radio"
+            id="ingredient"
+            value="ingredient"
+            type="radio"
+            name="searchType"
+            required
+            checked={ formValues.searchType === 'ingredient' }
+            onChange={ handleChange }
+          />
+          Ingredient
+        </label>
+        <label htmlFor="name" id="input-name">
+          <input
+            data-testid="name-search-radio"
+            id="name"
+            value="name"
+            type="radio"
+            name="searchType"
+            required
+            checked={ formValues.searchType === 'name' }
+            onChange={ handleChange }
+          />
+          Name
+        </label>
+        <label htmlFor="firstLetter" id="input-letter">
+          <input
+            data-testid="first-letter-search-radio"
+            id="firstLetter"
+            value="firstLetter"
+            type="radio"
+            name="searchType"
+            required
+            checked={ formValues.searchType === 'firstLetter' }
+            onChange={ handleChange }
+          />
+          First Letter
+        </label>
+      </div>
+      <button type="submit" data-testid="exec-search-btn" id="button-seacrh">
         Search
       </button>
     </form>

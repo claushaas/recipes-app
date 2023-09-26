@@ -1,0 +1,68 @@
+#div-header {
+    width: 100%;
+}
+
+#header {
+    background-color: #FCDC36;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    height: 80px;
+    width: 100%;
+}
+
+#div-titulo {
+    display: flex;
+    align-items: center;
+    margin-left: 50px;
+}
+
+#h1 {
+    font-size: 45px;
+    font-family: 'Times New Roman', Times, serif;
+    color: #41197F;
+    font-style: italic;
+}
+
+#img-prato {
+    width: 70px;
+    margin-right: 40px;
+}
+
+#div-buttons {
+    margin-right: 50px;
+}
+
+#button-search {
+    margin-right: 30px;
+    background: none;
+	color: inherit;
+	border: none;
+	padding: 0;
+	font: inherit;
+	cursor: pointer;
+	outline: inherit;
+}
+
+#button-profile {
+    background: none;
+	color: inherit;
+	border: none;
+	padding: 0;
+	font: inherit;
+	cursor: pointer;
+	outline: inherit;
+}
+
+#img-search {
+    width: 40px;
+}
+
+#img-profile {
+    width: 40px;
+}
+
+#div-bar {
+    display: flex;
+    justify-content: center;
+}

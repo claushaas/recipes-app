@@ -1,0 +1,41 @@
+#searchBarForm {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    margin-top: 50px;
+    margin-bottom: 50px;
+    background-color: #41197F;
+    border-radius: 10px;
+    height: 170px;
+    width: 627px;
+}
+
+#term {
+    width: 620px;
+    border-radius: 10px;
+    height: 50px;
+    font-size: 20px;
+    margin-bottom: 20px;
+}
+
+#input-ingredient, #input-name {
+    color: white;
+    margin-right: 50px;
+    /* margin-top: 50px; */
+    font-size: 16px;
+}
+
+#input-letter {
+    color: white;
+    font-size: 16px;
+}
+
+#button-seacrh {
+    background-color: #FCDC36;
+    border-radius: 10px;
+    width: 360px;
+    height: 35px;
+    margin-top: 20px;
+    cursor: pointer;
+    font-size: 20px;
+}

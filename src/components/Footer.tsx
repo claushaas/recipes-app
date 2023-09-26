@@ -7,11 +7,21 @@ function Footer() {
   const navigate = useNavigate();
   return (
     <footer data-testid="footer" className="footer">
-      <button onClick={ () => navigate('/drinks') }>
-        <img src={ drinkIcon } alt="Drink Icon" data-testid="drinks-bottom-btn" />
+      <button onClick={ () => navigate('/drinks') } id="botton-1">
+        <img
+          src={ drinkIcon }
+          alt="Drink Icon"
+          data-testid="drinks-bottom-btn"
+          id="img-booton-1"
+        />
       </button>
-      <button onClick={ () => navigate('/meals') }>
-        <img src={ mealIcon } alt="Meal Icon" data-testid="meals-bottom-btn" />
+      <button onClick={ () => navigate('/meals') } id="botton-2">
+        <img
+          src={ mealIcon }
+          alt="Meal Icon"
+          data-testid="meals-bottom-btn"
+          id="img-booton-2"
+        />
       </button>
     </footer>
   );
