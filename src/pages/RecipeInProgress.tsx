@@ -31,11 +31,11 @@ function MealProgress() {
   return (
     <div>
       <img
-        src={ recipe.strMealThumb }
-        alt={ recipe.strMeal }
+        src={ recipe.strMealThumb || recipe.strDrinkThumb }
+        alt={ recipe.strMeal || recipe.strDrink }
         data-testid="recipe-photo"
       />
-      <h1 data-testid="recipe-title">{recipe.strMeal}</h1>
+      <h1 data-testid="recipe-title">{recipe.strMeal || recipe.strDrink}</h1>
       <button data-testid="share-btn">Compartilhar</button>
       <button data-testid="favorite-btn">Favoritar</button>
       <p data-testid="recipe-category">
