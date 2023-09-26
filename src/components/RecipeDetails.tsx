@@ -2,7 +2,7 @@ import React, { useEffect } from 'react';
 import { useParams } from 'react-router-dom';
 import { useSelector, useDispatch } from 'react-redux';
 import { ThunkAction } from 'redux-thunk';
-import { Drink, Meal, ReduxState } from '../types';
+import { Drink, DrinkDetails, Meal, MealDetails, ReduxState } from '../types';
 import { fetchRecipeDetails } from '../redux/actions';
 
 function RecipeDetails() {
@@ -13,9 +13,9 @@ function RecipeDetails() {
 
   const details = useSelector((state: ReduxState) => {
     if (isMeal) {
-      return state.meals.meals[0] as Meal | undefined;
+      return state.meals.meals[0] as MealDetails | undefined;
     }
-    return state.drinks.drinks[0] as Drink | undefined;
+    return state.drinks.drinks[0] as DrinkDetails | undefined;
   });
 
   useEffect(() => {
@@ -29,6 +29,15 @@ function RecipeDetails() {
     return <div>Loading...</div>;
   }
 
+  const ingredientsArray = [];
+  for (let i = 1; i <= 99; i++) {
+    const ingredient = details[`strIngredient${i}`];
+    const measure = details[`strMeasure${i}`];
+    if (ingredient) {
+      ingredientsArray.push({ ingredient, measure });
+    }
+  }
+
   return (
     <div>
       <img
@@ -39,7 +48,6 @@ function RecipeDetails() {
       <h1 data-testid="recipe-title">
         {isMeal ? details.strMeal : details.strDrink}
       </h1>
-
 
       {isMeal && details.strCategory && (
         <p data-testid="recipe-category">
@@ -58,22 +66,17 @@ function RecipeDetails() {
       )}
 
       <h2>Ingredients:</h2>
+
       <ul>
-        {Array.from({ length: 20 }, (_, index) => {
-          const ingredient = details[`strIngredient${index + 1}`];
-          const measure = details[`strMeasure${index + 1}`];
-          if (ingredient) {
-            return (
-              <li
-                key={ ingredient }
-                data-testid={ `${index}-ingredient-name-and-measure` }
-              >
-                {`${ingredient}${measure ? ` - ${measure}` : ''}`}
-              </li>
-            );
-          }
-          return null;
-        })}
+        {ingredientsArray.map((ingredientObj, index) => (
+          <li
+            key={ index }
+            data-testid={ `${index}-ingredient-name-and-measure` }
+          >
+            {`${ingredientObj.measure ? `${ingredientObj.measure} - ` : ''}
+            ${ingredientObj.ingredient}`}
+          </li>
+        ))}
       </ul>
 
       <h2>Instructions:</h2>
@@ -92,7 +95,6 @@ function RecipeDetails() {
           allowFullScreen
         />
       )}
-
 
       <h2>Recommendations:</h2>
 
