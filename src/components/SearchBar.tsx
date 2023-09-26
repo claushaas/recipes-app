@@ -1,7 +1,7 @@
 import { useLocation, useNavigate } from 'react-router-dom';
-
 import { useDispatch, useSelector } from 'react-redux';
 import { useEffect, useState } from 'react';
+import { AnyAction } from 'redux';
 import { fetchDrinks, fetchMeals } from '../redux/actions';
 import { ReduxState } from '../types';
 
@@ -20,7 +20,6 @@ function SearchBar() {
   const [searched, setSearched] = useState(false);
   const location = useLocation();
   const dispatch = useDispatch();
-  // const { meals, drinks } = useSelector((state: ReduxState) => state);
   const meals = useSelector((state: ReduxState) => state.meals);
   const drinks = useSelector((state: ReduxState) => state.drinks);
   const navigate = useNavigate();
@@ -29,11 +28,15 @@ function SearchBar() {
     e.preventDefault();
 
     if (location.pathname === '/meals') {
-      dispatch(fetchMeals(formValues.term, formValues.searchType));
+      dispatch(
+        fetchMeals(formValues.term, formValues.searchType) as unknown as AnyAction,
+      );
     }
 
     if (location.pathname === '/drinks') {
-      dispatch(fetchDrinks(formValues.term, formValues.searchType));
+      dispatch(
+        fetchDrinks(formValues.term, formValues.searchType) as unknown as AnyAction,
+      );
     }
 
     setSearched(true);
