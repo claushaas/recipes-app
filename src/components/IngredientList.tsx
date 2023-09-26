@@ -8,7 +8,9 @@ type IngredientListProps = {
 
 function IngredientList({ recipe }: IngredientListProps) {
   const navigate = useNavigate();
-  const lCInProgressRecipe = JSON.parse(localStorage.getItem('inProgressRecipes'));
+  const lCInProgressRecipe = JSON.parse(
+    localStorage.getItem('inProgressRecipes') as string,
+  );
   const actualInProgressRecipe = lCInProgressRecipe
     && lCInProgressRecipe[recipe.idMeal || recipe.idDrink];
 
@@ -48,7 +50,9 @@ function IngredientList({ recipe }: IngredientListProps) {
         [recipe.idMeal || recipe.idDrink]: newState,
       };
 
-      const inProgressRecipes = JSON.parse(localStorage.getItem('inProgressRecipes'));
+      const inProgressRecipes = JSON.parse(
+        localStorage.getItem('inProgressRecipes') as string,
+      );
 
       const newInProgressRecipes = {
         ...inProgressRecipes,
@@ -63,7 +67,7 @@ function IngredientList({ recipe }: IngredientListProps) {
 
   const handleSubmit = (event: React.FormEvent<HTMLFormElement>) => {
     event.preventDefault();
-    const doneRecipes = JSON.parse(localStorage.getItem('doneRecipes'));
+    const doneRecipes = JSON.parse(localStorage.getItem('doneRecipes') as string);
 
     const doneRecipe = {
       id: recipe.idMeal || recipe.idDrink,
@@ -76,8 +80,6 @@ function IngredientList({ recipe }: IngredientListProps) {
       doneDate: new Date(),
       tags: recipe.strTags ? recipe.strTags.split(',') : [],
     };
-
-    console.log(doneRecipe);
 
     let newDoneRecipes = [];
     if (doneRecipes) {
