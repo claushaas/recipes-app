@@ -1,13 +1,6 @@
 import { AnyAction } from 'redux';
 import { ThunkDispatch } from 'redux-thunk';
 
-type RecipeCommon = {
-  id: string;
-  name: string;
-  thumbnail: string;
-
-};
-
 export type ReduxState = {
   meals: {
     meals: Meal[];
@@ -17,7 +10,7 @@ export type ReduxState = {
   };
 };
 
-export type Drink = RecipeCommon & {
+export type Drink = {
   strDrink: string;
   strAlcoholic: string;
 
@@ -25,7 +18,7 @@ export type Drink = RecipeCommon & {
 
 export type Drinks = Drink[];
 
-export type Meal = RecipeCommon & {
+export type Meal = {
   strMeal: string;
   strCategory: string;
 
