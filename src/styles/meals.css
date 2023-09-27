@@ -1,7 +1,7 @@
 #img-food {
-  width: 300px;
-  margin-top: 20px;
   margin-bottom: 20px;
+  margin-top: 20px;
+  width: 300px;
 }
 
 #cardsContainer {
@@ -11,7 +11,7 @@
 }
 
 #div-img {
-  display: flex;
   align-items: center;
+  display: flex;
   justify-content: center;
 }
