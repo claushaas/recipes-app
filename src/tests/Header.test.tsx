@@ -31,8 +31,8 @@ describe('Teste do componente Header', () => {
 
     await user.click(profileButton);
 
-    const profileHeading = screen.getByRole('heading', {
-      name: /profile/i,
+    const profileHeading = screen.getByRole('img', {
+      name: /perfil/i,
     });
 
     expect(profileHeading).toBeInTheDocument();
