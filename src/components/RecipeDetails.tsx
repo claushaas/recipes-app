@@ -2,8 +2,9 @@ import React, { useEffect } from 'react';
 import { useParams } from 'react-router-dom';
 import { useSelector, useDispatch } from 'react-redux';
 import { ThunkAction } from 'redux-thunk';
+import { AnyAction } from 'redux';
 import { RecipeDetailsType, ReduxState } from '../types';
-import { fetchRecipeDetails } from '../redux/actions';
+import { fetchDrinks, fetchMeals, fetchRecipeDetails } from '../redux/actions';
 
 function RecipeDetails() {
   const { id } = useParams();
@@ -17,7 +18,6 @@ function RecipeDetails() {
     }
     return state.recipeDetails.details?.drinks?.[0] as RecipeDetailsType;
   });
-  console.log(details);
 
   useEffect(() => {
     if (id) {
@@ -25,6 +25,18 @@ function RecipeDetails() {
       ThunkAction<void, ReduxState, null, any>);
     }
   }, [dispatch, id, isMeal]);
+
+  useEffect(() => {
+    if (isMeal) {
+      dispatch(
+        fetchDrinks('', 'name') as unknown as AnyAction,
+      );
+    } else {
+      dispatch(
+        fetchMeals('', 'name') as unknown as AnyAction,
+      );
+    }
+  }, []);
 
   if (!details) {
     return <div>Loading...</div>;
