@@ -1,11 +1,11 @@
 import React, { useEffect } from 'react';
 import { useParams } from 'react-router-dom';
 import { useSelector, useDispatch } from 'react-redux';
-import { ThunkAction } from 'redux-thunk';
 import { AnyAction } from 'redux';
 import Carousel from './Carousel';
 import { RecipeDetailsType, ReduxState } from '../types';
 import { fetchDrinks, fetchMeals, fetchRecipeDetails } from '../redux/actions';
+import StartRecipeButton from './StartRecipeButton';
 
 function RecipeDetails() {
   const { id } = useParams();
@@ -22,8 +22,7 @@ function RecipeDetails() {
 
   useEffect(() => {
     if (id) {
-      dispatch(fetchRecipeDetails(id as string) as
-      ThunkAction<void, ReduxState, null, any>);
+      dispatch(fetchRecipeDetails(id) as unknown as AnyAction);
     }
   }, [dispatch, id, isMeal]);
 
@@ -51,6 +50,9 @@ function RecipeDetails() {
       ingredientsArray.push({ ingredient, measure });
     }
   }
+
+  const doneRecipes = JSON.parse(localStorage.getItem('doneRecipes') || '[]');
+  const isDone = doneRecipes.some((recipe: any) => recipe.id === id);
 
   return (
     <div>
@@ -114,12 +116,7 @@ function RecipeDetails() {
 
       <h2>Recommendations:</h2>
       <Carousel />
-      <button
-        data-testid="start-recipe-btn"
-        style={ { position: 'fixed', bottom: '0' } }
-      >
-        Start Recipe
-      </button>
+      <StartRecipeButton isDone={ isDone } />
     </div>
   );
 }
