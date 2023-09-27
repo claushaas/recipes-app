@@ -66,7 +66,6 @@ function RecipeDetails() {
       <h1 data-testid="recipe-title">
         {isMeal ? details.strMeal : details.strDrink}
       </h1>
-
       { isMeal && details.strCategory && (
         <p data-testid="recipe-category">
           Category:
