@@ -3,6 +3,7 @@ import { useParams } from 'react-router-dom';
 import { useSelector, useDispatch } from 'react-redux';
 import { ThunkAction } from 'redux-thunk';
 import { AnyAction } from 'redux';
+import Carousel from './Carousel';
 import { RecipeDetailsType, ReduxState } from '../types';
 import { fetchDrinks, fetchMeals, fetchRecipeDetails } from '../redux/actions';
 
@@ -112,7 +113,13 @@ function RecipeDetails() {
       )}
 
       <h2>Recommendations:</h2>
-
+      <Carousel />
+      <button
+        data-testid="start-recipe-btn"
+        style={ { position: 'fixed', bottom: '0' } }
+      >
+        Start Recipe
+      </button>
     </div>
   );
 }
