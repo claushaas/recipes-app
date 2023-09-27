@@ -6,6 +6,8 @@ import Carousel from './Carousel';
 import { RecipeDetailsType, ReduxState } from '../types';
 import { fetchDrinks, fetchMeals, fetchRecipeDetails } from '../redux/actions';
 import StartRecipeButton from './StartRecipeButton';
+import ShareButton from './ShareButton';
+import FavoriteButton from './FavoriteButton';
 
 function RecipeDetails() {
   const { id } = useParams();
@@ -116,6 +118,8 @@ function RecipeDetails() {
 
       <h2>Recommendations:</h2>
       <Carousel />
+      <ShareButton />
+      <FavoriteButton />
       <StartRecipeButton isDone={ isDone } id={ id as string } />
     </div>
   );
