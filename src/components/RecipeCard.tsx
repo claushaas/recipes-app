@@ -1,3 +1,4 @@
+import '../styles/recipeCard.css';
 import { Link } from 'react-router-dom';
 
 type CardProps = {
@@ -10,9 +11,9 @@ type CardProps = {
 function RecipeCard({ id, index, img, name }: CardProps) {
   return (
     <Link to={ id }>
-      <div data-testid={ `${index}-recipe-card` }>
-        <img src={ img } alt={ name } data-testid={ `${index}-card-img` } />
-        <p data-testid={ `${index}-card-name` }>{name}</p>
+      <div data-testid={ `${index}-recipe-card` } id="div-card">
+        <img src={ img } alt={ name } data-testid={ `${index}-card-img` } id="img-card" />
+        <p data-testid={ `${index}-card-name` } id="p-card">{name}</p>
       </div>
     </Link>
   );
