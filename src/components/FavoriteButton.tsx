@@ -1,14 +1,14 @@
 import { useSelector } from 'react-redux';
 import { useParams } from 'react-router-dom';
 import { useState } from 'react';
-import { MealDetails, ReduxState } from '../types';
+import { ReduxState } from '../types';
 import whiteHeartIcon from '../images/whiteHeartIcon.svg';
 import blackHeartIcon from '../images/blackHeartIcon.svg';
 
 function FavoriteButton() {
   const details = useSelector((state: ReduxState) => {
-    return state.recipeDetails.details?.meals?.[0] as MealDetails
-      || state.recipeDetails.details?.drinks?.[0] as MealDetails;
+    return state.recipeDetails.details?.meals?.[0]
+      || state.recipeDetails.details?.drinks?.[0];
   });
 
   const favoriteRecipes = JSON.parse(
