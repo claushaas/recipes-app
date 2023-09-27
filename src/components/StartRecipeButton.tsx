@@ -1,3 +1,5 @@
+import { Link } from 'react-router-dom';
+
 type StartRecipeButtonProps = {
   isDone: boolean;
   id: string;
@@ -17,12 +19,14 @@ function StartRecipeButton({ isDone, id }: StartRecipeButtonProps) {
   }
 
   return (
-    <button
-      data-testid="start-recipe-btn"
-      style={ { position: 'fixed', bottom: '0' } }
-    >
-      { isInProgress ? 'Continue Recipe' : 'Start Recipe'}
-    </button>
+    <Link to="in-progress">
+      <button
+        data-testid="start-recipe-btn"
+        style={ { position: 'fixed', bottom: '0' } }
+      >
+        { isInProgress ? 'Continue Recipe' : 'Start Recipe'}
+      </button>
+    </Link>
   );
 }
 
