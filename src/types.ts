@@ -9,7 +9,7 @@ export type ReduxState = {
     drinks: Drink[];
   };
   recipeDetails: {
-    details: RecipeDetails;
+    details: RecipeDetailsType;
   };
 };
 
@@ -55,6 +55,6 @@ export type DrinkDetails = {
   ingredients: { ingredient: string; measure: string }[];
 };
 
-export type RecipeDetails = MealDetails | DrinkDetails;
+export type RecipeDetailsType = MealDetails | DrinkDetails;
 
 export type Dispatch = ThunkDispatch<ReduxState, null, AnyAction>;

@@ -2,7 +2,7 @@ import React, { useEffect } from 'react';
 import { useParams } from 'react-router-dom';
 import { useSelector, useDispatch } from 'react-redux';
 import { ThunkAction } from 'redux-thunk';
-import { RecipeDetails, ReduxState } from '../types';
+import { RecipeDetailsType, ReduxState } from '../types';
 import { fetchRecipeDetails } from '../redux/actions';
 
 function RecipeDetails() {
@@ -12,10 +12,10 @@ function RecipeDetails() {
   const isMeal = window.location.pathname.startsWith('/meals');
 
   const details = useSelector((state: ReduxState) => {
-    // if (isMeal) {
-    return state.recipeDetails.details as RecipeDetails;
-    // }
-    // return state.recipeDetails.details as DrinkDetails | undefined;
+    if (isMeal) {
+      return state.recipeDetails.details?.meals?.[0] as RecipeDetailsType;
+    }
+    return state.recipeDetails.details?.drinks?.[0] as RecipeDetailsType;
   });
   console.log(details);
 
@@ -42,15 +42,15 @@ function RecipeDetails() {
   return (
     <div>
       <img
-        src={ isMeal ? details.meals[0].strMealThumb : details.drinks[0].strDrinkThumb }
-        alt={ isMeal ? details.meals[0].strMeal : details.drinks[0].strDrink }
+        src={ isMeal ? details.strMealThumb : details.strDrinkThumb }
+        alt={ isMeal ? details.strMeal : details.strDrink }
         data-testid="recipe-photo"
       />
       <h1 data-testid="recipe-title">
-        {isMeal ? details.meals[0].strMeal : details.drinks[0].strDrink}
+        {isMeal ? details.strMeal : details.strDrink}
       </h1>
 
-      {isMeal && details.strCategory && (
+      { isMeal && details.strCategory && (
         <p data-testid="recipe-category">
           Category:
           {' '}
@@ -58,11 +58,13 @@ function RecipeDetails() {
         </p>
       )}
 
-      {!isMeal && details.strAlcoholic && (
+      {!isMeal && details && details.strAlcoholic && (
         <p data-testid="recipe-category">
           Alcoholic:
           {' '}
           {details.strAlcoholic}
+          {' '}
+          {details.strCategory}
         </p>
       )}
 
