@@ -1,4 +1,4 @@
-import { screen, waitFor, waitForElementToBeRemoved } from '@testing-library/react';
+import { screen, waitFor } from '@testing-library/react';
 import { vi } from 'vitest';
 import App from '../App';
 import renderWithRouterAndRedux from './helpers/renderWithReduxAndRouter';
