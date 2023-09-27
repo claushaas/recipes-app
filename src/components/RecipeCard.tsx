@@ -1,4 +1,5 @@
-import { useNavigate } from 'react-router-dom';
+import '../styles/recipeCard.css';
+import { Link } from 'react-router-dom';
 
 type CardProps = {
   id: string;
@@ -19,16 +20,12 @@ function RecipeCard({ id, index, img, name }: CardProps) {
     }
   };
   return (
-    <div
-      role="button"
-      tabIndex={ 0 }
-      onClick={ handleClick }
-      onKeyPress={ handleKeyPress }
-      data-testid={ `${index}-recipe-card` }
-    >
-      <img src={ img } alt={ name } data-testid={ `${index}-card-img` } />
-      <p data-testid={ `${index}-card-name` }>{name}</p>
-    </div>
+    <Link to={ id }>
+      <div data-testid={ `${index}-recipe-card` } id="div-card">
+        <img src={ img } alt={ name } data-testid={ `${index}-card-img` } id="img-card" />
+        <p data-testid={ `${index}-card-name` } id="p-card">{name}</p>
+      </div>
+    </Link>
   );
 }
 

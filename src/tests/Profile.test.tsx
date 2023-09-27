@@ -2,8 +2,8 @@ import { screen } from '@testing-library/dom';
 import userEvent from '@testing-library/user-event';
 import Profile from '../pages/Profile';
 import renderWithRouterAndRedux from './helpers/renderWithReduxAndRouter';
-import DoneRecipies from '../pages/DoneRecipies';
-import FavoriteRecipies from '../pages/FavoriteRecipies';
+import DoneRecipies from '../pages/DoneRecipes';
+import FavoriteRecipies from '../pages/FavoriteRecipes';
 import Login from '../pages/Login';
 
 test('testes da pagina de Profile', async () => {

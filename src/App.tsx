@@ -2,12 +2,11 @@ import './App.css';
 import { Routes, Route } from 'react-router-dom';
 import Login from './pages/Login';
 import Recipes from './pages/Recipes';
-import MealProgress from './pages/MealProgress';
-import DrinkProgress from './pages/DrinkProgress';
-import Profile from './pages/Profile';
-import DoneRecipies from './pages/DoneRecipies';
-import FavoriteRecipies from './pages/FavoriteRecipies';
 import RecipeDetails from './components/RecipeDetails';
+import RecipeInProgress from './pages/RecipeInProgress';
+import Profile from './pages/Profile';
+import DoneRecipes from './pages/DoneRecipes';
+import FavoriteRecipes from './pages/FavoriteRecipes';
 
 function App() {
   return (
@@ -17,11 +16,11 @@ function App() {
       <Route path="/drinks" element={ <Recipes /> } />
       <Route path="/meals/:id" element={ <RecipeDetails /> } />
       <Route path="/drinks/:id" element={ <RecipeDetails /> } />
-      <Route path="/meals/:id-da-receita/in-progress" element={ <MealProgress /> } />
-      <Route path="/drinks/:id-da-receita/in-progress" element={ <DrinkProgress /> } />
+      <Route path="/meals/:id/in-progress" element={ <RecipeInProgress /> } />
+      <Route path="/drinks/:id/in-progress" element={ <RecipeInProgress /> } />
       <Route path="/profile" element={ <Profile /> } />
-      <Route path="/done-recipes" element={ <DoneRecipies /> } />
-      <Route path="favorite-recipes" element={ <FavoriteRecipies /> } />
+      <Route path="/done-recipes" element={ <DoneRecipes /> } />
+      <Route path="favorite-recipes" element={ <FavoriteRecipes /> } />
     </Routes>
   );
 }
