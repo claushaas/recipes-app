@@ -116,7 +116,7 @@ function RecipeDetails() {
 
       <h2>Recommendations:</h2>
       <Carousel />
-      <StartRecipeButton isDone={ isDone } />
+      <StartRecipeButton isDone={ isDone } id={ id as string } />
     </div>
   );
 }
