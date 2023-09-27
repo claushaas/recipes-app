@@ -33,16 +33,16 @@ export type Meal = {
 
 export type Meals = Meal[];
 
-export type MealDetails = {
-  idMeal: string;
-  strMeal: string;
-  strCategory: string;
-  strInstructions: string;
-  strMealThumb: string;
-  strTags?: string;
-  strYoutube?: string;
-  ingredients: { ingredient: string; measure: string }[];
-};
+// export type MealDetails = {
+//   idMeal: string;
+//   strMeal: string;
+//   strCategory: string;
+//   strInstructions: string;
+//   strMealThumb: string;
+//   strTags?: string;
+//   strYoutube?: string;
+//   ingredients: { ingredient: string; measure: string }[];
+// };
 
 export type DrinkDetails = {
   idDrink: string;

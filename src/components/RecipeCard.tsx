@@ -9,16 +9,6 @@ type CardProps = {
 };
 
 function RecipeCard({ id, index, img, name }: CardProps) {
-  const navigate = useNavigate();
-
-  const handleClick = () => {
-    const route = id.startsWith('meal') ? `/meals/${id}` : `/drinks/${id}`;
-    navigate(route);
-  }; const handleKeyPress = (event: React.KeyboardEvent<HTMLDivElement>) => {
-    if (event.key === 'Enter') {
-      handleClick();
-    }
-  };
   return (
     <Link to={ id }>
       <div data-testid={ `${index}-recipe-card` } id="div-card">
