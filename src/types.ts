@@ -8,6 +8,9 @@ export type ReduxState = {
   drinks: {
     drinks: Drink[];
   };
+  recipeDetails: {
+    details: RecipeDetails;
+  };
 };
 
 export type Drink = {

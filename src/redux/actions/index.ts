@@ -56,6 +56,7 @@ export const fetchRecipeDetails = (id: string) => async (dispatch: Dispatch) => 
     }
 
     const data = await response.json();
+    console.log(data);
     dispatch(setRecipeDetails(data));
   } catch (error) {
     console.error(error);

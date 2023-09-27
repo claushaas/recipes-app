@@ -15,8 +15,8 @@ function App() {
       <Route path="/" element={ <Login /> } />
       <Route path="/meals" element={ <Recipes /> } />
       <Route path="/drinks" element={ <Recipes /> } />
-      <Route path="/meals/:id-da-receita" element={ <RecipeDetails /> } />
-      <Route path="/drinks/:id-da-receita" element={ <RecipeDetails /> } />
+      <Route path="/meals/:id" element={ <RecipeDetails /> } />
+      <Route path="/drinks/:id" element={ <RecipeDetails /> } />
       <Route path="/meals/:id-da-receita/in-progress" element={ <MealProgress /> } />
       <Route path="/drinks/:id-da-receita/in-progress" element={ <DrinkProgress /> } />
       <Route path="/profile" element={ <Profile /> } />

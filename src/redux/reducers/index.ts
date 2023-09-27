@@ -1,7 +1,7 @@
 import { combineReducers } from 'redux';
 import mealsReducer from './mealsReducer';
 import drinksReducer from './drinksReducer';
-import RecipeDetails from '../../components/RecipeDetails';
+import RecipeDetails from './detailsReducer';
 
 const rootReducer = combineReducers({
   meals: mealsReducer,

@@ -2,28 +2,29 @@ import React, { useEffect } from 'react';
 import { useParams } from 'react-router-dom';
 import { useSelector, useDispatch } from 'react-redux';
 import { ThunkAction } from 'redux-thunk';
-import { Drink, DrinkDetails, Meal, MealDetails, ReduxState } from '../types';
+import { RecipeDetails, ReduxState } from '../types';
 import { fetchRecipeDetails } from '../redux/actions';
 
 function RecipeDetails() {
-  const { idDaReceita } = useParams();
+  const { id } = useParams();
   const dispatch = useDispatch();
 
   const isMeal = window.location.pathname.startsWith('/meals');
 
   const details = useSelector((state: ReduxState) => {
-    if (isMeal) {
-      return state.meals.meals[0] as MealDetails | undefined;
-    }
-    return state.drinks.drinks[0] as DrinkDetails | undefined;
+    // if (isMeal) {
+    return state.recipeDetails.details as RecipeDetails;
+    // }
+    // return state.recipeDetails.details as DrinkDetails | undefined;
   });
+  console.log(details);
 
   useEffect(() => {
-    if (idDaReceita) {
-      dispatch(fetchRecipeDetails(idDaReceita as string) as
+    if (id) {
+      dispatch(fetchRecipeDetails(id as string) as
       ThunkAction<void, ReduxState, null, any>);
     }
-  }, [dispatch, idDaReceita, isMeal]);
+  }, [dispatch, id, isMeal]);
 
   if (!details) {
     return <div>Loading...</div>;
@@ -41,12 +42,12 @@ function RecipeDetails() {
   return (
     <div>
       <img
-        src={ isMeal ? details.strMealThumb : details.strDrinkThumb }
-        alt={ isMeal ? details.strMeal : details.strDrink }
+        src={ isMeal ? details.meals[0].strMealThumb : details.drinks[0].strDrinkThumb }
+        alt={ isMeal ? details.meals[0].strMeal : details.drinks[0].strDrink }
         data-testid="recipe-photo"
       />
       <h1 data-testid="recipe-title">
-        {isMeal ? details.strMeal : details.strDrink}
+        {isMeal ? details.meals[0].strMeal : details.drinks[0].strDrink}
       </h1>
 
       {isMeal && details.strCategory && (
