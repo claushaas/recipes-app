@@ -5,6 +5,7 @@ import profileIcon from '../images/profileIcon.svg';
 import SearchBar from './SearchBar';
 import '../styles/header.css';
 import prato from '../images/ícone-Recipes-app.png';
+import CategoryButton from './CategoryButton';
 
 type HeaderProps = {
   title: string;
@@ -56,6 +57,7 @@ function Header({ title, showSearch, showProfile }: HeaderProps) {
       </header>
       <div id="div-bar">
         {showSearchBar && <SearchBar />}
+        <CategoryButton />
       </div>
     </div>
   );

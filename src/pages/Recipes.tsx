@@ -13,7 +13,6 @@ function Recipes() {
   const { pathname } = useLocation();
   const dispatch = useDispatch();
 
-  // const { meals, drinks } = useSelector((state: ReduxState) => state);
   const meals = useSelector((state: ReduxState) => state.meals);
   const drinks = useSelector((state: ReduxState) => state.drinks);
 
@@ -73,6 +72,7 @@ function Recipes() {
               index={ index }
               img={ meal.strMealThumb }
               name={ meal.strMeal }
+              id={ meal.idMeal }
             />
           ))}
         {pathname === '/drinks' && drinks.drinks?.slice(0, 12)
@@ -82,6 +82,7 @@ function Recipes() {
               index={ index }
               img={ drink.strDrinkThumb }
               name={ drink.strDrink }
+              id={ drink.idDrink }
             />
           ))}
       </section>

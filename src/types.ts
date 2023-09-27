@@ -27,3 +27,16 @@ export type Meal = {
 export type Meals = Meal[];
 
 export type Dispatch = ThunkDispatch<ReduxState, null, AnyAction>;
+
+export type MealDetails = {
+  strMealThumb: string;
+  strMeal: string;
+  strCategory: string;
+  idMeal: string;
+  idDrink: string;
+  strArea: string;
+  strAlcoholic: string;
+  strDrink: string;
+  strDrinkThumb: string;
+  strTags: string;
+};
