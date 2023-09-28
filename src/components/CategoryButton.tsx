@@ -100,12 +100,14 @@ function CategoryButton() {
 
   return (
     <div>
-      <button
-        data-testid="All-category-filter"
-        onClick={ pathname === '/meals' ? () => mealsAPI() : () => drinksAPI() }
-      >
-        All
-      </button>
+      {pathname === '/meals' || pathname === '/drinks' ? (
+        <button
+          data-testid="All-category-filter"
+          onClick={ pathname === '/meals' ? () => mealsAPI() : () => drinksAPI() }
+        >
+          All
+        </button>
+      ) : null}
 
       {pathname === '/meals' && categoryMeal?.slice(0, 5)
         .map((category: CategoryMealType, index: number) => (
