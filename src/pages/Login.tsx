@@ -31,14 +31,14 @@ function Login() {
   };
 
   return (
-    <div id="div-root">
-      <div id="div-logo">
-        <img id="img" src={ logo } alt="logo" />
+    <div className="div-root">
+      <div className="div-logo">
+        <img className="img" src={ logo } alt="logo" />
       </div>
-      <img src={ tomate } id="tomate" alt="tomate" />
+      <img src={ tomate } className="tomate" alt="tomate" />
       <div id="login-page">
-        <form onSubmit={ handleSubmit } id="form">
-          <h2 id="h2">LOGIN</h2>
+        <form onSubmit={ handleSubmit } className="form">
+          <h2 className="h2">LOGIN</h2>
           <input
             type="email"
             name="email"
@@ -47,6 +47,7 @@ function Login() {
             data-testid="email-input"
             onChange={ handleChange }
             id="input-email"
+            className="input-email"
           />
           <input
             type="password"
@@ -56,11 +57,12 @@ function Login() {
             data-testid="password-input"
             onChange={ handleChange }
             id="input-password"
+            className="input-password"
           />
           <button
             data-testid="login-submit-btn"
             disabled={ (!(isEmail(user.email)) || user.password.length <= 6) }
-            id="button"
+            className="button"
           >
             Enter
           </button>

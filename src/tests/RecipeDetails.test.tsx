@@ -37,8 +37,6 @@ describe('Testes da página RecipeInProgress', () => {
       const instructions = screen.getByTestId('instructions');
       expect(instructions).toBeInTheDocument();
     });
-
-    screen.debug();
   });
 
   test('Se a página contém os elementos corretos renderizando uma Drink', async () => {
@@ -69,7 +67,5 @@ describe('Testes da página RecipeInProgress', () => {
       const instructions = screen.getByTestId('instructions');
       expect(instructions).toBeInTheDocument();
     });
-
-    screen.debug();
   });
 });

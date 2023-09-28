@@ -1,27 +1,27 @@
-#profile {
+.profile {
   align-items: center;
   display: flex;
   flex-direction: column;
 }
 
-#profile-img {
+.profile-img {
   margin-bottom: -15px;
   margin-top: 50px;
   width: 50px;
 }
 
-#h1-profile {
-  color: #41197F;
+.h1-profile {
+  color: #41197f;
   font-weight: 900;
 }
 
-#div-buttons-profile {
+.div-buttons-profile {
   align-items: flex-start;
   display: flex;
   flex-direction: column;
 }
 
-#btn-done {
+.btn-done {
   align-items: center;
   background: none;
   border: none;
@@ -37,7 +37,7 @@
   padding: 0;
 }
 
-#btn-favorite {
+.btn-favorite {
   align-items: center;
   background: none;
   border: none;
@@ -48,27 +48,25 @@
   font-size: 25px;
   justify-content: center;
   margin-bottom: 40px;
-  padding: 0;
   outline: inherit;
+  padding: 0;
 }
 
-#btn-logout {
+.btn-logout {
   align-items: center;
   background: none;
   border: none;
-  cursor: pointer;
   color: rgb(133, 133, 133);
+  cursor: pointer;
   display: flex;
   font: inherit;
   font-size: 25px;
   justify-content: center;
-  padding: 0;
   outline: inherit;
+  padding: 0;
 }
 
-#doneImg,
-#favoriteImg,
-#logoutImg {
+.doneImg, .favoriteImg, .logoutImg {
   margin-right: 20px;
   width: 50px;
 }

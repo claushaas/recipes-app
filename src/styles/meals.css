@@ -1,16 +1,16 @@
-#img-food {
+.img-food {
   margin-bottom: 20px;
   margin-top: 20px;
   width: 300px;
 }
 
-#cardsContainer {
+.cardsContainer {
   display: flex;
   flex-wrap: wrap;
   justify-content: center;
 }
 
-#div-img {
+.div-img {
   align-items: center;
   display: flex;
   justify-content: center;

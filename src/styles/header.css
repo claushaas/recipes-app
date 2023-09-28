@@ -1,8 +1,8 @@
-#div-header {
+.div-header {
   width: 100%;
 }
 
-#header {
+.header {
   align-items: center;
   background-color: #fcdc36;
   display: flex;
@@ -11,29 +11,29 @@
   width: 100%;
 }
 
-#div-titulo {
+.div-titulo {
   align-items: center;
   display: flex;
   margin-left: 50px;
 }
 
-#h1 {
-  color: #41197F;
+.h1 {
+  color: #41197f;
+  font-family: Times New Roman , Times , serif;
   font-size: 45px;
-  font-family: 'Times New Roman', Times, serif;
   font-style: italic;
 }
 
-#img-prato {
+.img-prato {
   margin-right: 40px;
   width: 70px;
 }
 
-#div-buttons {
+.div-buttons {
   margin-right: 50px;
 }
 
-#button-search {
+.button-search {
   background: none;
   border: none;
   color: inherit;
@@ -44,7 +44,7 @@
   padding: 0;
 }
 
-#button-profile {
+.button-profile {
   background: none;
   border: none;
   color: inherit;
@@ -54,15 +54,15 @@
   padding: 0;
 }
 
-#img-search {
+.img-search {
   width: 40px;
 }
 
-#img-profile {
+.img-profile {
   width: 40px;
 }
 
-#div-bar {
+.div-bar {
   display: flex;
   justify-content: center;
 }
