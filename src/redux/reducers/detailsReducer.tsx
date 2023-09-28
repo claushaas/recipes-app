@@ -1,9 +1,9 @@
 import { AnyAction } from 'redux';
 import { SET_RECIPE_DETAILS } from '../actions';
-import { RecipeDetails } from '../../types';
+import { RecipeDetailsType } from '../../types';
 
 interface DetailsState {
-  details: RecipeDetails | null; // Use the union type here
+  details: RecipeDetailsType | null; // Use the union type here
 }
 
 const INITIAL_STATE: DetailsState = {
