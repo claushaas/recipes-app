@@ -1,0 +1,13 @@
+.carousel {
+  display: flex;
+  overflow-y: scroll;
+  width: 360px;
+}
+
+.carousel-card {
+  margin: 0 15px;
+}
+
+.carousel-card-image {
+  width: 150px;
+}

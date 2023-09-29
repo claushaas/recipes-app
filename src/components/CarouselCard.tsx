@@ -1,6 +1,16 @@
-import React from 'react';
+import '../styles/carousel.css';
 
-function CarouselCard({ recipe, index }) {
+type CarouselCardProps = {
+  recipe: {
+    strMealThumb: string;
+    strMeal: string;
+    strDrinkThumb: string;
+    strDrink: string;
+  };
+  index: number;
+};
+
+function CarouselCard({ recipe, index }: CarouselCardProps) {
   return (
     <div
       data-testid={ `${index}-recommendation-card` }
@@ -9,6 +19,7 @@ function CarouselCard({ recipe, index }) {
       <img
         src={ recipe.strMealThumb || recipe.strDrinkThumb }
         alt={ recipe.strMeal || recipe.strDrink }
+        className="carousel-card-image"
       />
       <p data-testid={ `${index}-recommendation-title` }>
         {recipe.strMeal || recipe.strDrink}
