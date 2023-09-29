@@ -1,4 +1,4 @@
-import { screen } from '@testing-library/react';
+import { screen, within } from '@testing-library/react';
 import { vi } from 'vitest';
 import App from '../App';
 import * as APIModule from '../services/searchAPI';
@@ -21,6 +21,7 @@ describe('Teste do componente SearchBar', () => {
     const searchButton = screen.getByRole('button', {
       name: /pesquisar/i,
     });
+
     expect(searchButton).toBeInTheDocument();
     await user.click(searchButton);
 
@@ -28,9 +29,9 @@ describe('Teste do componente SearchBar', () => {
     expect(searchInput).toBeInTheDocument();
     await user.type(searchInput, 'chicken');
 
-    const ingredientRadio = screen.getByRole('radio', {
-      name: /ingredient/i,
-    });
+    const view = screen.getByText(/ingredient/i);
+    const ingredientRadio = within(view).getByRole('radio');
+
     expect(ingredientRadio).toBeInTheDocument();
     await user.click(ingredientRadio);
 
@@ -56,9 +57,9 @@ describe('Teste do componente SearchBar', () => {
     expect(searchInput).toBeInTheDocument();
     await user.type(searchInput, 'chicken');
 
-    const ingredientRadio = screen.getByRole('radio', {
-      name: /ingredient/i,
-    });
+    const view = screen.getByText(/ingredient/i);
+    const ingredientRadio = within(view).getByRole('radio');
+
     expect(ingredientRadio).toBeInTheDocument();
     await user.click(ingredientRadio);
 
@@ -89,9 +90,9 @@ describe('Teste do componente SearchBar', () => {
     expect(searchInput).toBeInTheDocument();
     await user.type(searchInput, 'chicken');
 
-    const ingredientRadio = screen.getByRole('radio', {
-      name: /ingredient/i,
-    });
+    const view = screen.getByText(/ingredient/i);
+    const ingredientRadio = within(view).getByRole('radio');
+
     expect(ingredientRadio).toBeInTheDocument();
     await user.click(ingredientRadio);
 
@@ -125,9 +126,9 @@ describe('Teste do componente SearchBar', () => {
     expect(searchInput).toBeInTheDocument();
     await user.type(searchInput, 'chicken');
 
-    const ingredientRadio = screen.getByRole('radio', {
-      name: /ingredient/i,
-    });
+    const view = screen.getByText(/ingredient/i);
+    const ingredientRadio = within(view).getByRole('radio');
+
     expect(ingredientRadio).toBeInTheDocument();
     await user.click(ingredientRadio);
 
@@ -161,9 +162,9 @@ describe('Teste do componente SearchBar', () => {
     expect(searchInput).toBeInTheDocument();
     await user.type(searchInput, 'chicken');
 
-    const firstLetterRadio = screen.getByRole('radio', {
-      name: /first letter/i,
-    });
+    const view = screen.getByText(/first letter/i);
+    const firstLetterRadio = within(view).getByRole('radio');
+
     expect(firstLetterRadio).toBeInTheDocument();
     await user.click(firstLetterRadio);
 
@@ -191,9 +192,9 @@ describe('Teste do componente SearchBar', () => {
     expect(searchInput).toBeInTheDocument();
     await user.type(searchInput, 'chicken');
 
-    const firstLetterRadio = screen.getByRole('radio', {
-      name: /first letter/i,
-    });
+    const view = screen.getByText(/first letter/i);
+    const firstLetterRadio = within(view).getByRole('radio');
+
     expect(firstLetterRadio).toBeInTheDocument();
     await user.click(firstLetterRadio);
 
@@ -222,9 +223,9 @@ describe('Teste do componente SearchBar', () => {
     expect(searchInput).toBeInTheDocument();
     await user.type(searchInput, 'xablau');
 
-    const ingredientRadio = screen.getByRole('radio', {
-      name: /ingredient/i,
-    });
+    const view = screen.getByText(/ingredient/i);
+    const ingredientRadio = within(view).getByRole('radio');
+
     expect(ingredientRadio).toBeInTheDocument();
     await user.click(ingredientRadio);
 
@@ -253,9 +254,9 @@ describe('Teste do componente SearchBar', () => {
     expect(searchInput).toBeInTheDocument();
     await user.type(searchInput, 'xablau');
 
-    const ingredientRadio = screen.getByRole('radio', {
-      name: /ingredient/i,
-    });
+    const view = screen.getByText(/ingredient/i);
+    const ingredientRadio = within(view).getByRole('radio');
+
     expect(ingredientRadio).toBeInTheDocument();
     await user.click(ingredientRadio);
 
