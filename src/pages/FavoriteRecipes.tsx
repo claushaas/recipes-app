@@ -49,7 +49,8 @@ function FavoriteRecipies() {
             </b>
           </p>
           <p data-testid={ `${index}-horizontal-top-text` }>
-            {`${recipe.nationality} - ${recipe.category}`}
+            {recipe.type === 'meal'
+              ? `${recipe.nationality} - ${recipe.category}` : recipe.alcoholicOrNot}
           </p>
 
           <button
