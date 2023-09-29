@@ -38,7 +38,7 @@ function RecipeDetails() {
         fetchMeals('', 'name') as unknown as AnyAction,
       );
     }
-  }, []);
+  }, [dispatch, isMeal]);
 
   if (!details) {
     return <div>Loading...</div>;

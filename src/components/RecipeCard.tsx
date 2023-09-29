@@ -10,10 +10,15 @@ type CardProps = {
 
 function RecipeCard({ id, index, img, name }: CardProps) {
   return (
-    <Link to={ id }>
-      <div data-testid={ `${index}-recipe-card` } id="div-card">
-        <img src={ img } alt={ name } data-testid={ `${index}-card-img` } id="img-card" />
-        <p data-testid={ `${index}-card-name` } id="p-card">{name}</p>
+    <Link to={ id } className="link">
+      <div data-testid={ `${index}-recipe-card` } className="div-card">
+        <img
+          src={ img }
+          alt={ name }
+          data-testid={ `${index}-card-img` }
+          className="img-card"
+        />
+        <p data-testid={ `${index}-card-name` } className="p-card">{name}</p>
       </div>
     </Link>
   );

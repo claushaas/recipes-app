@@ -1,11 +1,12 @@
-import { useNavigate } from 'react-router-dom';
+import { useLocation, useNavigate } from 'react-router-dom';
 import { useState } from 'react';
 import searchIcon from '../images/searchIcon.svg';
 import profileIcon from '../images/profileIcon.svg';
 import SearchBar from './SearchBar';
 import '../styles/header.css';
 import prato from '../images/ícone-Recipes-app.png';
-import CategoryButton from './CategoryButton';
+import food from '../images/foods.png';
+import drinkImg from '../images/drinks.png';
 
 type HeaderProps = {
   title: string;
@@ -14,6 +15,7 @@ type HeaderProps = {
 };
 
 function Header({ title, showSearch, showProfile }: HeaderProps) {
+  const { pathname } = useLocation();
   const [showSearchBar, setShowSearchBar] = useState(false);
   const navigate = useNavigate();
 
@@ -26,38 +28,48 @@ function Header({ title, showSearch, showProfile }: HeaderProps) {
   };
 
   return (
-    <div id="div-header">
-      <header id="header">
-        <div id="div-titulo">
-          <img src={ prato } id="img-prato" alt="logo" />
-          <h1 data-testid="page-title" id="h1">{title}</h1>
+    <div className="div-header">
+      <header className="header">
+        <div className="div-titulo">
+          <img src={ prato } className="img-prato" alt="logo" />
+          <h1 data-testid="page-title" className="h1">{title}</h1>
         </div>
-        <div id="div-buttons">
+        <div className="div-buttons">
           {showSearch && (
-            <button onClick={ handleSearchClick } id="button-search">
+            <button onClick={ handleSearchClick } className="button-search">
               <img
                 src={ searchIcon }
                 alt="Pesquisar"
                 data-testid="search-top-btn"
-                id="img-search"
+                className="img-search"
               />
             </button>
           )}
           {showProfile && (
-            <button onClick={ handleProfileClick } id="button-profile">
+            <button onClick={ handleProfileClick } className="button-profile">
               <img
                 src={ profileIcon }
                 alt="Perfil"
                 data-testid="profile-top-btn"
-                id="img-profile"
+                className="img-profile"
               />
             </button>
           )}
         </div>
       </header>
-      <div id="div-bar">
+      {pathname === '/meals'
+        ? (
+          <div className="div-img">
+            <img src={ food } alt="food" className="img-food" />
+          </div>
+        )
+        : (
+          <div className="div-img">
+            <img src={ drinkImg } className="img-food" alt="drink" />
+          </div>
+        )}
+      <div className="div-bar">
         {showSearchBar && <SearchBar />}
-        <CategoryButton />
       </div>
     </div>
   );

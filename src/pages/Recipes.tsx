@@ -6,8 +6,7 @@ import Footer from '../components/Footer';
 import RecipeCard from '../components/RecipeCard';
 import { Drink, Meal, ReduxState } from '../types';
 import '../styles/meals.css';
-import food from '../images/foods.png';
-import drinkImg from '../images/drinks.png';
+import CategoryButton from '../components/CategoryButton';
 
 function Recipes() {
   const { pathname } = useLocation();
@@ -53,18 +52,8 @@ function Recipes() {
         showSearch
         showProfile
       />
-      {pathname === '/meals'
-        ? (
-          <div id="div-img">
-            <img src={ food } alt="food" id="img-food" />
-          </div>
-        )
-        : (
-          <div id="div-img">
-            <img src={ drinkImg } id="img-food" alt="drink" />
-          </div>
-        )}
-      <section id="cardsContainer">
+      <CategoryButton />
+      <section className="cardsContainer">
         {pathname === '/meals' && meals.meals?.slice(0, 12)
           .map((meal: Meal, index: number) => (
             <RecipeCard
