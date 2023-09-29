@@ -1,13 +1,28 @@
 import { useEffect, useState } from 'react';
+import Swal from 'sweetalert2';
 import Header from '../components/Header';
 import shareIcon from '../images/shareIcon.svg';
 import blackHeartIcon from '../images/blackHeartIcon.svg';
 
 function FavoriteRecipies() {
+  const handleCopy = async (id: string, type: string) => {
+    if (type === 'meal') {
+      const URL = `http://localhost:3000/meals/${id}`;
+      await navigator.clipboard.writeText(URL);
+      Swal.fire('Link copied!');
+    }
+    if (type === 'drink') {
+      const URL = `http://localhost:3000/drinks/${id}`;
+      await navigator.clipboard.writeText(URL);
+      Swal.fire('Link copied!');
+    }
+  };
+
   const [favoriteData, setFavoriteData] = useState<any[]>([]);
   useEffect(() => {
     const data = JSON.parse(localStorage.getItem('favoriteRecipes') || '[]');
     setFavoriteData(data);
+    console.log(data);
   }, []);
 
   return (
@@ -55,6 +70,7 @@ function FavoriteRecipies() {
 
           <button
             type="button"
+            onClick={ () => handleCopy(recipe.id, recipe.type) }
           >
             <img
               data-testid={ `${index}-horizontal-share-btn` }
