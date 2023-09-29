@@ -1,11 +1,12 @@
-import { useNavigate } from 'react-router-dom';
+import { useLocation, useNavigate } from 'react-router-dom';
 import { useState } from 'react';
 import searchIcon from '../images/searchIcon.svg';
 import profileIcon from '../images/profileIcon.svg';
 import SearchBar from './SearchBar';
 import '../styles/header.css';
 import prato from '../images/ícone-Recipes-app.png';
-import CategoryButton from './CategoryButton';
+import food from '../images/foods.png';
+import drinkImg from '../images/drinks.png';
 
 type HeaderProps = {
   title: string;
@@ -14,6 +15,7 @@ type HeaderProps = {
 };
 
 function Header({ title, showSearch, showProfile }: HeaderProps) {
+  const { pathname } = useLocation();
   const [showSearchBar, setShowSearchBar] = useState(false);
   const navigate = useNavigate();
 
@@ -55,9 +57,19 @@ function Header({ title, showSearch, showProfile }: HeaderProps) {
           )}
         </div>
       </header>
+      {pathname === '/meals'
+        ? (
+          <div className="div-img">
+            <img src={ food } alt="food" className="img-food" />
+          </div>
+        )
+        : (
+          <div className="div-img">
+            <img src={ drinkImg } className="img-food" alt="drink" />
+          </div>
+        )}
       <div className="div-bar">
         {showSearchBar && <SearchBar />}
-        <CategoryButton />
       </div>
     </div>
   );

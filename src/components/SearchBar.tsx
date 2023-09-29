@@ -88,18 +88,17 @@ function SearchBar() {
       <input
         type="text"
         name="term"
-        id="term"
         className="term"
         data-testid="search-input"
         onChange={ handleChange }
         value={ formValues.term }
         placeholder="Search"
       />
-      <div id="div-input">
+      <div className="div-input">
         <label htmlFor="ingredient" className="input-ingredient">
           <input
             data-testid="ingredient-search-radio"
-            id="ingredient"
+            className="ingredient"
             value="ingredient"
             type="radio"
             name="searchType"
@@ -112,7 +111,7 @@ function SearchBar() {
         <label htmlFor="name" className="input-name">
           <input
             data-testid="name-search-radio"
-            id="name"
+            className="name"
             value="name"
             type="radio"
             name="searchType"
@@ -125,7 +124,7 @@ function SearchBar() {
         <label htmlFor="firstLetter" className="input-letter">
           <input
             data-testid="first-letter-search-radio"
-            id="firstLetter"
+            className="firstLetter"
             value="firstLetter"
             type="radio"
             name="searchType"

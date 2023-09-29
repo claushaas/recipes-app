@@ -36,7 +36,7 @@ function Login() {
         <img className="img" src={ logo } alt="logo" />
       </div>
       <img src={ tomate } className="tomate" alt="tomate" />
-      <div id="login-page">
+      <div className="login-page">
         <form onSubmit={ handleSubmit } className="form">
           <h2 className="h2">LOGIN</h2>
           <input
@@ -46,7 +46,6 @@ function Login() {
             placeholder="E-Mail"
             data-testid="email-input"
             onChange={ handleChange }
-            id="input-email"
             className="input-email"
           />
           <input
@@ -56,7 +55,6 @@ function Login() {
             placeholder="Password"
             data-testid="password-input"
             onChange={ handleChange }
-            id="input-password"
             className="input-password"
           />
           <button

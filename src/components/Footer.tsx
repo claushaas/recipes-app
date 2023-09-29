@@ -12,7 +12,7 @@ function Footer() {
           src={ drinkIcon }
           alt="Drink Icon"
           data-testid="drinks-bottom-btn"
-          id="img-booton-1"
+          className="img-booton-1"
         />
       </button>
       <button onClick={ () => navigate('/meals') } className="botton-2">
@@ -20,7 +20,7 @@ function Footer() {
           src={ mealIcon }
           alt="Meal Icon"
           data-testid="meals-bottom-btn"
-          id="img-booton-2"
+          className="img-booton-2"
         />
       </button>
     </footer>

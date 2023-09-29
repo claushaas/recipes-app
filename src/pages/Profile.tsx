@@ -29,7 +29,7 @@ function Profile() {
       <Header title="Profile" showSearch={ false } showProfile />
       <img src={ profileImg } alt="profile" className="profile-img" />
       <h1 className="h1-profile">PROFILE</h1>
-      <h2 id="h2-profile" data-testid="profile-email">{ emailUser }</h2>
+      <h2 className="h2-profile" data-testid="profile-email">{ emailUser }</h2>
       <div className="div-buttons-profile">
         <button
           className="btn-done"
