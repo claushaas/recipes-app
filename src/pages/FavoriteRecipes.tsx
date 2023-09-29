@@ -1,5 +1,7 @@
 import { useEffect, useState } from 'react';
 import Header from '../components/Header';
+import shareIcon from '../images/shareIcon.svg';
+import blackHeartIcon from '../images/blackHeartIcon.svg';
 
 function FavoriteRecipies() {
   const [favoriteData, setFavoriteData] = useState<any[]>([]);
@@ -47,21 +49,27 @@ function FavoriteRecipies() {
             </b>
           </p>
           <p data-testid={ `${index}-horizontal-top-text` }>
-            {recipe.category}
+            {`${recipe.nationality} - ${recipe.category}`}
           </p>
 
           <button
             type="button"
-            data-testid={ `${index}-horizontal-share-btn` }
           >
-            Compartilhar
+            <img
+              data-testid={ `${index}-horizontal-share-btn` }
+              src={ shareIcon }
+              alt={ shareIcon }
+            />
           </button>
 
           <button
             type="button"
-            data-testid={ `${index}-horizontal-favorite-btn` }
           >
-            Favoritar
+            <img
+              data-testid={ `${index}-horizontal-favorite-btn` }
+              src={ blackHeartIcon }
+              alt={ blackHeartIcon }
+            />
           </button>
         </div>
       ))}
