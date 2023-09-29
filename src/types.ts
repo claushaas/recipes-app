@@ -3,28 +3,59 @@ import { ThunkDispatch } from 'redux-thunk';
 
 export type ReduxState = {
   meals: {
-    meals: Meals;
-  }
+    meals: Meal[];
+  };
   drinks: {
-    drinks: Drinks;
-  }
+    drinks: Drink[];
+  };
+  recipeDetails: {
+    details: RecipeDetailsType;
+  };
 };
 
 export type Drink = {
+  idDrink: any;
+  strDrinkThumb: string;
   strDrink: string;
-  strDrinkThumb: string
-  idDrink: string;
+  strAlcoholic: string;
+
 };
 
 export type Drinks = Drink[];
 
 export type Meal = {
-  strMeal: string;
+  idMeal: any;
   strMealThumb: string;
-  idMeal: string;
+  strMeal: string;
+  strCategory: string;
+
 };
 
 export type Meals = Meal[];
+
+// export type MealDetails = {
+//   idMeal: string;
+//   strMeal: string;
+//   strCategory: string;
+//   strInstructions: string;
+//   strMealThumb: string;
+//   strTags?: string;
+//   strYoutube?: string;
+//   ingredients: { ingredient: string; measure: string }[];
+// };
+
+export type DrinkDetails = {
+  idDrink: string;
+  strDrink: string;
+  strAlcoholic: string;
+  strInstructions: string;
+  strDrinkThumb: string;
+  strTags?: string;
+  strYoutube?: string;
+  ingredients: { ingredient: string; measure: string }[];
+};
+
+export type RecipeDetailsType = MealDetails | DrinkDetails;
 
 export type Dispatch = ThunkDispatch<ReduxState, null, AnyAction>;
 
