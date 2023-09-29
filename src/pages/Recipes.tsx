@@ -55,16 +55,16 @@ function Recipes() {
       />
       {pathname === '/meals'
         ? (
-          <div id="div-img">
-            <img src={ food } alt="food" id="img-food" />
+          <div className="div-img">
+            <img src={ food } alt="food" className="img-food" />
           </div>
         )
         : (
-          <div id="div-img">
+          <div className="div-img">
             <img src={ drinkImg } id="img-food" alt="drink" />
           </div>
         )}
-      <section id="cardsContainer">
+      <section className="cardsContainer">
         {pathname === '/meals' && meals.meals?.slice(0, 12)
           .map((meal: Meal, index: number) => (
             <RecipeCard

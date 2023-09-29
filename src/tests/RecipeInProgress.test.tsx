@@ -4,10 +4,6 @@ import App from '../App';
 import renderWithRouterAndRedux from './helpers/renderWithReduxAndRouter';
 import { mockForRecipeInProgress, mockForDrinkInProgress } from './mock/mockData';
 
-beforeEach(() => {
-
-});
-
 afterEach(() => {
   vi.restoreAllMocks();
 });

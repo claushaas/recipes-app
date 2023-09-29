@@ -26,36 +26,36 @@ function Header({ title, showSearch, showProfile }: HeaderProps) {
   };
 
   return (
-    <div id="div-header">
-      <header id="header">
-        <div id="div-titulo">
-          <img src={ prato } id="img-prato" alt="logo" />
-          <h1 data-testid="page-title" id="h1">{title}</h1>
+    <div className="div-header">
+      <header className="header">
+        <div className="div-titulo">
+          <img src={ prato } className="img-prato" alt="logo" />
+          <h1 data-testid="page-title" className="h1">{title}</h1>
         </div>
-        <div id="div-buttons">
+        <div className="div-buttons">
           {showSearch && (
-            <button onClick={ handleSearchClick } id="button-search">
+            <button onClick={ handleSearchClick } className="button-search">
               <img
                 src={ searchIcon }
                 alt="Pesquisar"
                 data-testid="search-top-btn"
-                id="img-search"
+                className="img-search"
               />
             </button>
           )}
           {showProfile && (
-            <button onClick={ handleProfileClick } id="button-profile">
+            <button onClick={ handleProfileClick } className="button-profile">
               <img
                 src={ profileIcon }
                 alt="Perfil"
                 data-testid="profile-top-btn"
-                id="img-profile"
+                className="img-profile"
               />
             </button>
           )}
         </div>
       </header>
-      <div id="div-bar">
+      <div className="div-bar">
         {showSearchBar && <SearchBar />}
         <CategoryButton />
       </div>

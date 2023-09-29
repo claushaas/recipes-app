@@ -1,6 +1,6 @@
-#searchBarForm {
+.searchBarForm {
   align-items: center;
-  background-color: #41197F;
+  background-color: #41197f;
   border-radius: 10px;
   display: flex;
   flex-direction: column;
@@ -10,7 +10,7 @@
   width: 627px;
 }
 
-#term {
+.term {
   border-radius: 10px;
   font-size: 20px;
   height: 50px;
@@ -18,20 +18,19 @@
   width: 620px;
 }
 
-#input-ingredient,
-#input-name {
+.input-ingredient, .input-name {
   color: white;
   font-size: 16px;
   margin-right: 50px;
 }
 
-#input-letter {
+.input-letter {
   color: white;
   font-size: 16px;
 }
 
-#button-seacrh {
-  background-color: #FCDC36;
+.button-seacrh {
+  background-color: #fcdc36;
   border-radius: 10px;
   cursor: pointer;
   font-size: 20px;

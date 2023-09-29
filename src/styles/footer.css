@@ -9,7 +9,7 @@
   width: 100%;
 }
 
-#botton-1 {
+.botton-1 {
   background: none;
   border: none;
   color: inherit;
@@ -20,7 +20,7 @@
   padding: 0;
 }
 
-#botton-2 {
+.botton-2 {
   background: none;
   border: none;
   color: inherit;
