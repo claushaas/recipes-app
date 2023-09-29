@@ -5,10 +5,17 @@ import shareIcon from '../images/shareIcon.svg';
 import blackHeartIcon from '../images/blackHeartIcon.svg';
 
 function FavoriteRecipies() {
-  const handleCopy = async (id: string) => {
-    const URL = `http://localhost:3000/meals/${id}`;
-    await navigator.clipboard.writeText(URL);
-    Swal.fire('Link copied!');
+  const handleCopy = async (id: string, type: string) => {
+    if (type === 'meal') {
+      const URL = `http://localhost:3000/meals/${id}`;
+      await navigator.clipboard.writeText(URL);
+      Swal.fire('Link copied!');
+    }
+    if (type === 'drink') {
+      const URL = `http://localhost:3000/drinks/${id}`;
+      await navigator.clipboard.writeText(URL);
+      Swal.fire('Link copied!');
+    }
   };
 
   const [favoriteData, setFavoriteData] = useState<any[]>([]);
@@ -63,7 +70,7 @@ function FavoriteRecipies() {
 
           <button
             type="button"
-            onClick={ () => handleCopy(recipe.id) }
+            onClick={ () => handleCopy(recipe.id, recipe.type) }
           >
             <img
               data-testid={ `${index}-horizontal-share-btn` }
