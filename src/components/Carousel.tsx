@@ -4,6 +4,7 @@ import { AnyAction } from 'redux';
 import { fetchDrinks, fetchMeals } from '../redux/actions';
 import { ReduxState } from '../types';
 import CarouselCard from './CarouselCard';
+import '../styles/carousel.css';
 
 function Carousel() {
   const dispatch = useDispatch();
@@ -27,7 +28,7 @@ function Carousel() {
   return (
     <div>
       {recommendationsData && recommendationsData[isMeal ? 'drinks' : 'meals'] ? (
-        <div>
+        <div className="carousel">
           {recommendationsData[isMeal ? 'drinks' : 'meals']
             .slice(0, 6).map((item, index) => (
               <CarouselCard key={ index } recipe={ item } index={ index } />
