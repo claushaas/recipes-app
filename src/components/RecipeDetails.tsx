@@ -1,9 +1,13 @@
 import React, { useEffect } from 'react';
 import { useParams } from 'react-router-dom';
 import { useSelector, useDispatch } from 'react-redux';
-import { ThunkAction } from 'redux-thunk';
+import { AnyAction } from 'redux';
+import Carousel from './Carousel';
 import { RecipeDetailsType, ReduxState } from '../types';
-import { fetchRecipeDetails } from '../redux/actions';
+import { fetchDrinks, fetchMeals, fetchRecipeDetails } from '../redux/actions';
+import StartRecipeButton from './StartRecipeButton';
+import ShareButton from './ShareButton';
+import FavoriteButton from './FavoriteButton';
 
 function RecipeDetails() {
   const { id } = useParams();
@@ -17,14 +21,24 @@ function RecipeDetails() {
     }
     return state.recipeDetails.details?.drinks?.[0] as RecipeDetailsType;
   });
-  console.log(details);
 
   useEffect(() => {
     if (id) {
-      dispatch(fetchRecipeDetails(id as string) as
-      ThunkAction<void, ReduxState, null, any>);
+      dispatch(fetchRecipeDetails(id) as unknown as AnyAction);
     }
   }, [dispatch, id, isMeal]);
+
+  useEffect(() => {
+    if (isMeal) {
+      dispatch(
+        fetchDrinks('', 'name') as unknown as AnyAction,
+      );
+    } else {
+      dispatch(
+        fetchMeals('', 'name') as unknown as AnyAction,
+      );
+    }
+  }, [dispatch, isMeal]);
 
   if (!details) {
     return <div>Loading...</div>;
@@ -39,6 +53,9 @@ function RecipeDetails() {
     }
   }
 
+  const doneRecipes = JSON.parse(localStorage.getItem('doneRecipes') || '[]');
+  const isDone = doneRecipes.some((recipe: any) => recipe.id === id);
+
   return (
     <div>
       <img
@@ -49,7 +66,6 @@ function RecipeDetails() {
       <h1 data-testid="recipe-title">
         {isMeal ? details.strMeal : details.strDrink}
       </h1>
-
       { isMeal && details.strCategory && (
         <p data-testid="recipe-category">
           Category:
@@ -100,7 +116,10 @@ function RecipeDetails() {
       )}
 
       <h2>Recommendations:</h2>
-
+      <Carousel />
+      <ShareButton />
+      <FavoriteButton />
+      <StartRecipeButton isDone={ isDone } id={ id as string } />
     </div>
   );
 }

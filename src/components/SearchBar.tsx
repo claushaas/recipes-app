@@ -4,7 +4,7 @@ import { useEffect, useState } from 'react';
 import { AnyAction } from 'redux';
 import { fetchDrinks, fetchMeals } from '../redux/actions';
 import { ReduxState } from '../types';
-import '../styles/searchBar.css';
+// import '../styles/searchBar.css';
 
 type FormValuesTypes = {
   term: string;

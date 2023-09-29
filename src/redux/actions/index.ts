@@ -4,6 +4,8 @@ import { Dispatch, Drinks, Meals } from '../../types';
 export const SET_MEALS = 'SET_MEALS';
 export const SET_DRINKS = 'SET_DRINKS';
 export const SET_RECIPE_DETAILS = 'SET_RECIPE_DETAILS';
+export const SET_DRINKS_RECOMENDTARIONS = 'SET_MEAL_RECOMMENDATIONS';
+export const SET_MEALS_RECOMENDTARIONS = 'SET_DRINK_RECOMMENDATIONS';
 
 const setRecipeDetails = (data: any) => ({
   type: SET_RECIPE_DETAILS,
@@ -28,6 +30,16 @@ export const fetchMeals = (term: string, searchType: string) => async (
 
 const getDrinks = (data: Drinks) => ({
   type: SET_DRINKS,
+  payload: data,
+});
+
+const getDrinksRecommendations = (data: Drinks) => ({
+  type: SET_DRINKS_RECOMENDTARIONS,
+  payload: data,
+});
+
+const getMealsRecommendations = (data: Meals) => ({
+  type: SET_MEALS_RECOMENDTARIONS,
   payload: data,
 });
 
@@ -56,8 +68,15 @@ export const fetchRecipeDetails = (id: string) => async (dispatch: Dispatch) => 
     }
 
     const data = await response.json();
-    console.log(data);
     dispatch(setRecipeDetails(data));
+
+    if (isMeal) {
+      const drinksRecommendationsData = await searchDrinksAPI('', 'name');
+      dispatch(getDrinksRecommendations(drinksRecommendationsData));
+    } else {
+      const mealsRecommendationsData = await searchMealsAPI('', 'name');
+      dispatch(getMealsRecommendations(mealsRecommendationsData));
+    }
   } catch (error) {
     console.error(error);
   }
