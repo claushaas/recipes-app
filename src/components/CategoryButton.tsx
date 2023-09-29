@@ -1,6 +1,13 @@
 import { useEffect, useState } from 'react';
 import { useDispatch } from 'react-redux';
 import { useLocation } from 'react-router-dom';
+import '../styles/categoorybutton.css'
+import All from '../images/All.png';
+import Beef from '../images/beef.png';
+import Goat from '../images/goat.png';
+import Chicken from '../images/chicken.png';
+import Breakfast from '../images/chicken.png';
+import Dessert from '../images/dessert.png';
 
 type CategoryMealType = {
   strCategory: string;
@@ -9,6 +16,10 @@ type CategoryMealType = {
 type CategoryDrinkType = {
   strCategory: string;
 };
+
+const iconsMeals = [
+  {src: Beef}, {src: Goat}, {src: Chicken}, {src: Breakfast}, {src: Dessert}
+]
 
 function CategoryButton() {
   const [categoryMeal, setCategoryMeal] = useState<CategoryMealType[]>([]);
@@ -99,10 +110,11 @@ function CategoryButton() {
   }, []);
 
   return (
-    <div>
+    <div className="div-category">
       <button
         data-testid="All-category-filter"
         onClick={ pathname === '/meals' ? () => mealsAPI() : () => drinksAPI() }
+        className="btn-all-category"
       >
         All
       </button>
@@ -114,6 +126,7 @@ function CategoryButton() {
             key={ index }
             data-testid={ `${category.strCategory}-category-filter` }
             onClick={ () => filterByCategoryMeal(category.strCategory, !toggleMeal) }
+            className="btn-meals-category"
           >
             {category.strCategory}
           </button>
@@ -126,6 +139,7 @@ function CategoryButton() {
             key={ index }
             data-testid={ `${category.strCategory}-category-filter` }
             onClick={ () => filterByCategoryDrink(category.strCategory, !toggleDrink) }
+            className="btn-drinks-category"
           >
             {category.strCategory}
           </button>

@@ -1,77 +1,72 @@
-#profile {
+.profile {
+  align-items: center;
   display: flex;
   flex-direction: column;
-  align-items: center;
 }
 
-#profile-img {
-  width: 50px;
-  margin-top: 50px;
+.profile-img {
   margin-bottom: -15px;
+  margin-top: 50px;
+  width: 50px;
 }
 
-#h1-profile {
-  color: #41197F;
+.h1-profile {
+  color: #41197f;
   font-weight: 900;
 }
 
-#div-buttons-profile {
+.div-buttons-profile {
+  align-items: flex-start;
   display: flex;
   flex-direction: column;
-  align-items: flex-start;
 }
 
-#btn-done {
-  background: none;
-  color: inherit;
-  border: none;
-  padding: 0;
-  font: inherit;
-  cursor: pointer;
-  outline: inherit;
-  color: rgb(133, 133, 133);
-  margin-bottom: 40px;
-  font-size: 25px;
-  display: flex;
-  justify-content: center;
+.btn-done {
   align-items: center;
+  background: none;
+  border: none;
+  color: rgb(133, 133, 133);
+  cursor: pointer;
+  display: flex;
+  font: inherit;
+  font-size: 25px;
+  justify-content: center;
+  margin-bottom: 40px;
   margin-top: 40px;
+  outline: inherit;
+  padding: 0;
 }
 
-#btn-favorite {
+.btn-favorite {
+  align-items: center;
   background: none;
-  color: inherit;
   border: none;
-  padding: 0;
-  font: inherit;
-  cursor: pointer;
-  outline: inherit;
   color: rgb(133, 133, 133);
+  cursor: pointer;
+  display: flex;
+  font: inherit;
+  font-size: 25px;
+  justify-content: center;
   margin-bottom: 40px;
-  font-size: 25px;
-  display: flex;
-  justify-content: center;
-  align-items: center;
-}
-
-#btn-logout {
-  background: none;
-  color: inherit;
-  border: none;
-  padding: 0;
-  font: inherit;
-  cursor: pointer;
   outline: inherit;
-  color: rgb(133, 133, 133);
-  font-size: 25px;
-  display: flex;
-  justify-content: center;
-  align-items: center;
+  padding: 0;
 }
 
-#doneImg,
-#favoriteImg,
-#logoutImg {
+.btn-logout {
+  align-items: center;
+  background: none;
+  border: none;
+  color: rgb(133, 133, 133);
+  cursor: pointer;
+  display: flex;
+  font: inherit;
+  font-size: 25px;
+  justify-content: center;
+  outline: inherit;
+  padding: 0;
+}
+
+.doneImg, .favoriteImg, .logoutImg {
   margin-right: 20px;
   width: 50px;
 }

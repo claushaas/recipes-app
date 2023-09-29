@@ -1,68 +1,68 @@
-#div-header {
+.div-header {
   width: 100%;
 }
 
-#header {
-  background-color: #FCDC36;
-  display: flex;
-  justify-content: space-between;
+.header {
   align-items: center;
+  background-color: #fcdc36;
+  display: flex;
   height: 80px;
+  justify-content: space-between;
   width: 100%;
 }
 
-#div-titulo {
-  display: flex;
+.div-titulo {
   align-items: center;
+  display: flex;
   margin-left: 50px;
 }
 
-#h1 {
+.h1 {
+  color: #41197f;
+  font-family: Times New Roman , Times , serif;
   font-size: 45px;
-  font-family: 'Times New Roman', Times, serif;
-  color: #41197F;
   font-style: italic;
 }
 
-#img-prato {
-  width: 70px;
+.img-prato {
   margin-right: 40px;
+  width: 70px;
 }
 
-#div-buttons {
+.div-buttons {
   margin-right: 50px;
 }
 
-#button-search {
+.button-search {
+  background: none;
+  border: none;
+  color: inherit;
+  cursor: pointer;
+  font: inherit;
   margin-right: 30px;
-  background: none;
-  color: inherit;
-  border: none;
-  padding: 0;
-  font: inherit;
-  cursor: pointer;
   outline: inherit;
+  padding: 0;
 }
 
-#button-profile {
+.button-profile {
   background: none;
-  color: inherit;
   border: none;
-  padding: 0;
-  font: inherit;
+  color: inherit;
   cursor: pointer;
+  font: inherit;
   outline: inherit;
+  padding: 0;
 }
 
-#img-search {
+.img-search {
   width: 40px;
 }
 
-#img-profile {
+.img-profile {
   width: 40px;
 }
 
-#div-bar {
+.div-bar {
   display: flex;
   justify-content: center;
 }

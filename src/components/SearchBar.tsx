@@ -84,21 +84,21 @@ function SearchBar() {
   };
 
   return (
-    <form onSubmit={ handleFormSubmit } id="searchBarForm">
+    <form onSubmit={ handleFormSubmit } className="searchBarForm">
       <input
         type="text"
         name="term"
-        id="term"
+        className="term"
         data-testid="search-input"
         onChange={ handleChange }
         value={ formValues.term }
         placeholder="Search"
       />
-      <div id="div-input">
-        <label htmlFor="ingredient" id="input-ingredient">
+      <div className="div-input">
+        <label htmlFor="ingredient" className="input-ingredient">
           <input
             data-testid="ingredient-search-radio"
-            id="ingredient"
+            className="ingredient"
             value="ingredient"
             type="radio"
             name="searchType"
@@ -108,10 +108,10 @@ function SearchBar() {
           />
           Ingredient
         </label>
-        <label htmlFor="name" id="input-name">
+        <label htmlFor="name" className="input-name">
           <input
             data-testid="name-search-radio"
-            id="name"
+            className="name"
             value="name"
             type="radio"
             name="searchType"
@@ -121,10 +121,10 @@ function SearchBar() {
           />
           Name
         </label>
-        <label htmlFor="firstLetter" id="input-letter">
+        <label htmlFor="firstLetter" className="input-letter">
           <input
             data-testid="first-letter-search-radio"
-            id="firstLetter"
+            className="firstLetter"
             value="firstLetter"
             type="radio"
             name="searchType"
@@ -135,7 +135,7 @@ function SearchBar() {
           First Letter
         </label>
       </div>
-      <button type="submit" data-testid="exec-search-btn" id="button-seacrh">
+      <button type="submit" data-testid="exec-search-btn" className="button-seacrh">
         Search
       </button>
     </form>
