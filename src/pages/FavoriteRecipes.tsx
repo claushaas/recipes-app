@@ -57,12 +57,13 @@ function FavoriteRecipies() {
           data-testid="filter-by-meal-btn"
           onClick={ () => filterByCategoryMeal('meal') }
         >
-          Food
+          Meals
         </button>
 
         <button
           type="button"
           data-testid="filter-by-drink-btn"
+          onClick={ () => filterByCategoryMeal('drink') }
         >
           Drinks
         </button>
