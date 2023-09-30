@@ -48,7 +48,9 @@ function MealProgress() {
         {' '}
         {recipe.strCategory}
       </p>
-      <p data-testid="instructions">Instruções</p>
+      <p data-testid="instructions">Instructions</p>
+      <p>{recipe.strInstructions}</p>
+      <p>Ingredients</p>
       {(recipe.idMeal || recipe.idDrink) && <IngredientList recipe={ recipe } />}
     </div>
   );

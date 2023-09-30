@@ -47,9 +47,12 @@ export type Meals = Meal[];
 export type DrinkDetails = {
   idDrink: string;
   strDrink: string;
+  strCategory: string;
   strAlcoholic: string;
   strInstructions: string;
   strDrinkThumb: string;
+  strMealThumb: string;
+  strMeal: string;
   strTags?: string;
   strYoutube?: string;
   ingredients: { ingredient: string; measure: string }[];
@@ -70,4 +73,6 @@ export type MealDetails = {
   strDrink: string;
   strDrinkThumb: string;
   strTags: string;
+  strInstructions: string;
+  strYoutube: string;
 };
