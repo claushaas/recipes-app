@@ -5,6 +5,16 @@ import shareIcon from '../images/shareIcon.svg';
 import blackHeartIcon from '../images/blackHeartIcon.svg';
 
 function FavoriteRecipies() {
+  const [favoriteData, setFavoriteData] = useState<any[]>([]);
+  const [toggleMeal, setToggleMeal] = useState<boolean>(false);
+  const [toggleDrink, setToggleDrink] = useState<boolean>(false);
+
+  const filterByCategoryMeal = (category: string) => {
+    const data = JSON.parse(localStorage.getItem('favoriteRecipes') || '[]');
+    const filterData = data.filter((recipe: any) => recipe.type === category);
+    setFavoriteData(filterData);
+  };
+
   const handleCopy = async (id: string, type: string) => {
     if (type === 'meal') {
       const URL = `http://localhost:3000/meals/${id}`;
@@ -25,7 +35,6 @@ function FavoriteRecipies() {
     setFavoriteData(newData);
   };
 
-  const [favoriteData, setFavoriteData] = useState<any[]>([]);
   useEffect(() => {
     const data = JSON.parse(localStorage.getItem('favoriteRecipes') || '[]');
     setFavoriteData(data);
@@ -46,6 +55,7 @@ function FavoriteRecipies() {
         <button
           type="button"
           data-testid="filter-by-meal-btn"
+          onClick={ () => filterByCategoryMeal('meal') }
         >
           Food
         </button>
