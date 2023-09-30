@@ -4,6 +4,10 @@ import { useLocation, useParams } from 'react-router-dom';
 import { MealDetails } from '../types';
 import IngredientList from '../components/IngredientList';
 
+import '../styles/recipeInProgress.css';
+import FavoriteButton from '../components/FavoriteButton';
+import ShareButton from '../components/ShareButton';
+
 function MealProgress() {
   const [recipe, setRecipe] = useState({} as MealDetails);
   const { id } = useParams();
@@ -31,13 +35,14 @@ function MealProgress() {
   return (
     <div>
       <img
+        className="recipe-img"
         src={ recipe.strMealThumb || recipe.strDrinkThumb }
         alt={ recipe.strMeal || recipe.strDrink }
         data-testid="recipe-photo"
       />
+      <ShareButton />
+      <FavoriteButton details={ recipe } />
       <h1 data-testid="recipe-title">{recipe.strMeal || recipe.strDrink}</h1>
-      <button data-testid="share-btn">Compartilhar</button>
-      <button data-testid="favorite-btn">Favoritar</button>
       <p data-testid="recipe-category">
         Categoria
         {' '}
