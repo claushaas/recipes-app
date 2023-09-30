@@ -18,6 +18,13 @@ function FavoriteRecipies() {
     }
   };
 
+  const removeFavorite = (id: string) => {
+    const data = JSON.parse(localStorage.getItem('favoriteRecipes') || '[]');
+    const newData = data.filter((recipe: any) => recipe.id !== id);
+    localStorage.setItem('favoriteRecipes', JSON.stringify(newData));
+    setFavoriteData(newData);
+  };
+
   const [favoriteData, setFavoriteData] = useState<any[]>([]);
   useEffect(() => {
     const data = JSON.parse(localStorage.getItem('favoriteRecipes') || '[]');
@@ -81,6 +88,7 @@ function FavoriteRecipies() {
 
           <button
             type="button"
+            onClick={ () => removeFavorite(recipe.id) }
           >
             <img
               data-testid={ `${index}-horizontal-favorite-btn` }
