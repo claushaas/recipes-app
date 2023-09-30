@@ -4,11 +4,11 @@
   color: rgb(156, 156, 156);
   cursor: pointer;
   font: inherit;
-  font-size: 25px;
+  /* font-size: 25px; */
   margin-bottom: 30px;
-  margin-left: 10px;
+  /* margin-left: 10px; */
   outline: inherit;
-  padding-left: 20px;
+  /* padding-left: 20px; */
 }
 
 .btn-drinks-category {
@@ -17,11 +17,11 @@
   color: rgb(156, 156, 156);
   cursor: pointer;
   font: inherit;
-  font-size: 25px;
+  /* font-size: 25px; */
   margin-bottom: 30px;
-  margin-left: 10px;
+  /* margin-left: 10px; */
   outline: inherit;
-  padding-left: 20px;
+  /* padding-left: 20px; */
 }
 
 .btn-all-category {
@@ -30,7 +30,7 @@
   color: rgb(156, 156, 156);
   cursor: pointer;
   font: inherit;
-  font-size: 25px;
+  /* font-size: 25px; */
   margin-bottom: 30px;
   outline: inherit;
 }

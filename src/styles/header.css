@@ -20,13 +20,13 @@
 .h1 {
   color: #41197f;
   font-family: Times New Roman , Times , serif;
-  font-size: 45px;
+  font-size: 30px;
   font-style: italic;
 }
 
 .img-prato {
   margin-right: 40px;
-  width: 70px;
+  width: 40px;
 }
 
 .div-buttons {
@@ -55,11 +55,11 @@
 }
 
 .img-search {
-  width: 40px;
+  width: 25px;
 }
 
 .img-profile {
-  width: 40px;
+  width: 25px;
 }
 
 .div-bar {

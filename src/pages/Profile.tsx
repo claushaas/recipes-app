@@ -2,7 +2,7 @@ import { useNavigate } from 'react-router-dom';
 import Header from '../components/Header';
 import Footer from '../components/Footer';
 import profileImg from '../images/Perfil.png';
-// import '../styles/profile.css';
+import '../styles/profile.css';
 import doneImg from '../images/Group 10.png';
 import favoriteImg from '../images/Group 9.png';
 import logoutImg from '../images/Group 8.png';
