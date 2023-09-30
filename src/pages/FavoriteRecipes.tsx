@@ -6,13 +6,23 @@ import blackHeartIcon from '../images/blackHeartIcon.svg';
 
 function FavoriteRecipies() {
   const [favoriteData, setFavoriteData] = useState<any[]>([]);
-  const [toggleMeal, setToggleMeal] = useState<boolean>(false);
-  const [toggleDrink, setToggleDrink] = useState<boolean>(false);
 
-  const filterByCategoryMeal = (category: string) => {
+  const getFavoriteRecipes = () => {
+    const data = JSON.parse(localStorage.getItem('favoriteRecipes') || '[]');
+    setFavoriteData(data);
+  };
+
+  const filterByCategory = (category: string) => {
     const data = JSON.parse(localStorage.getItem('favoriteRecipes') || '[]');
     const filterData = data.filter((recipe: any) => recipe.type === category);
     setFavoriteData(filterData);
+  };
+
+  const removeFromFavorites = (id: string) => {
+    const data = JSON.parse(localStorage.getItem('favoriteRecipes') || '[]');
+    const newData = data.filter((recipe: any) => recipe.id !== id);
+    localStorage.setItem('favoriteRecipes', JSON.stringify(newData));
+    setFavoriteData(newData);
   };
 
   const handleCopy = async (id: string, type: string) => {
@@ -28,17 +38,8 @@ function FavoriteRecipies() {
     }
   };
 
-  const removeFavorite = (id: string) => {
-    const data = JSON.parse(localStorage.getItem('favoriteRecipes') || '[]');
-    const newData = data.filter((recipe: any) => recipe.id !== id);
-    localStorage.setItem('favoriteRecipes', JSON.stringify(newData));
-    setFavoriteData(newData);
-  };
-
   useEffect(() => {
-    const data = JSON.parse(localStorage.getItem('favoriteRecipes') || '[]');
-    setFavoriteData(data);
-    console.log(data);
+    getFavoriteRecipes();
   }, []);
 
   return (
@@ -48,6 +49,7 @@ function FavoriteRecipies() {
         <button
           type="button"
           data-testid="filter-by-all-btn"
+          onClick={ () => getFavoriteRecipes() }
         >
           All
         </button>
@@ -55,7 +57,7 @@ function FavoriteRecipies() {
         <button
           type="button"
           data-testid="filter-by-meal-btn"
-          onClick={ () => filterByCategoryMeal('meal') }
+          onClick={ () => filterByCategory('meal') }
         >
           Meals
         </button>
@@ -63,7 +65,7 @@ function FavoriteRecipies() {
         <button
           type="button"
           data-testid="filter-by-drink-btn"
-          onClick={ () => filterByCategoryMeal('drink') }
+          onClick={ () => filterByCategory('drink') }
         >
           Drinks
         </button>
@@ -99,7 +101,7 @@ function FavoriteRecipies() {
 
           <button
             type="button"
-            onClick={ () => removeFavorite(recipe.id) }
+            onClick={ () => removeFromFavorites(recipe.id) }
           >
             <img
               data-testid={ `${index}-horizontal-favorite-btn` }
