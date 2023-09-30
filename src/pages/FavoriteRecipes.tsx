@@ -5,6 +5,26 @@ import shareIcon from '../images/shareIcon.svg';
 import blackHeartIcon from '../images/blackHeartIcon.svg';
 
 function FavoriteRecipies() {
+  const [favoriteData, setFavoriteData] = useState<any[]>([]);
+
+  const getFavoriteRecipes = () => {
+    const data = JSON.parse(localStorage.getItem('favoriteRecipes') || '[]');
+    setFavoriteData(data);
+  };
+
+  const filterByCategory = (category: string) => {
+    const data = JSON.parse(localStorage.getItem('favoriteRecipes') || '[]');
+    const filterData = data.filter((recipe: any) => recipe.type === category);
+    setFavoriteData(filterData);
+  };
+
+  const removeFromFavorites = (id: string) => {
+    const data = JSON.parse(localStorage.getItem('favoriteRecipes') || '[]');
+    const newData = data.filter((recipe: any) => recipe.id !== id);
+    localStorage.setItem('favoriteRecipes', JSON.stringify(newData));
+    setFavoriteData(newData);
+  };
+
   const handleCopy = async (id: string, type: string) => {
     if (type === 'meal') {
       const URL = `http://localhost:3000/meals/${id}`;
@@ -18,18 +38,8 @@ function FavoriteRecipies() {
     }
   };
 
-  const removeFavorite = (id: string) => {
-    const data = JSON.parse(localStorage.getItem('favoriteRecipes') || '[]');
-    const newData = data.filter((recipe: any) => recipe.id !== id);
-    localStorage.setItem('favoriteRecipes', JSON.stringify(newData));
-    setFavoriteData(newData);
-  };
-
-  const [favoriteData, setFavoriteData] = useState<any[]>([]);
   useEffect(() => {
-    const data = JSON.parse(localStorage.getItem('favoriteRecipes') || '[]');
-    setFavoriteData(data);
-    console.log(data);
+    getFavoriteRecipes();
   }, []);
 
   return (
@@ -39,6 +49,7 @@ function FavoriteRecipies() {
         <button
           type="button"
           data-testid="filter-by-all-btn"
+          onClick={ () => getFavoriteRecipes() }
         >
           All
         </button>
@@ -46,13 +57,15 @@ function FavoriteRecipies() {
         <button
           type="button"
           data-testid="filter-by-meal-btn"
+          onClick={ () => filterByCategory('meal') }
         >
-          Food
+          Meals
         </button>
 
         <button
           type="button"
           data-testid="filter-by-drink-btn"
+          onClick={ () => filterByCategory('drink') }
         >
           Drinks
         </button>
@@ -88,7 +101,7 @@ function FavoriteRecipies() {
 
           <button
             type="button"
-            onClick={ () => removeFavorite(recipe.id) }
+            onClick={ () => removeFromFavorites(recipe.id) }
           >
             <img
               data-testid={ `${index}-horizontal-favorite-btn` }
