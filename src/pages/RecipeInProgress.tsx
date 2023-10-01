@@ -40,18 +40,22 @@ function MealProgress() {
         alt={ recipe.strMeal || recipe.strDrink }
         data-testid="recipe-photo"
       />
-      <ShareButton />
-      <FavoriteButton details={ recipe } />
-      <h1 data-testid="recipe-title">{recipe.strMeal || recipe.strDrink}</h1>
-      <p data-testid="recipe-category">
-        Categoria
-        {' '}
-        {recipe.strCategory}
-      </p>
-      <p data-testid="instructions">Instructions</p>
-      <p>{recipe.strInstructions}</p>
-      <p>Ingredients</p>
-      {(recipe.idMeal || recipe.idDrink) && <IngredientList recipe={ recipe } />}
+      <div className="buttons">
+        <ShareButton />
+        <FavoriteButton details={ recipe } />
+      </div>
+      <div className="content">
+        <h1 data-testid="recipe-title">{recipe.strMeal || recipe.strDrink}</h1>
+        <p data-testid="recipe-category">
+          Categoria
+          {' '}
+          {recipe.strCategory}
+        </p>
+        <p data-testid="instructions">Instructions</p>
+        <p>{recipe.strInstructions}</p>
+        <p>Ingredients</p>
+        {(recipe.idMeal || recipe.idDrink) && <IngredientList recipe={ recipe } />}
+      </div>
     </div>
   );
 }

@@ -65,62 +65,68 @@ function RecipeDetails() {
         alt={ isMeal ? details.strMeal : details.strDrink }
         data-testid="recipe-photo"
       />
-      <ShareButton />
-      <FavoriteButton details={ details } />
-      <h1 data-testid="recipe-title">
-        {isMeal ? details.strMeal : details.strDrink}
-      </h1>
-      { isMeal && details.strCategory && (
-        <p data-testid="recipe-category">
-          Category:
-          {' '}
-          {details.strCategory}
-        </p>
-      )}
+      <div className="buttons">
+        <ShareButton />
+        <FavoriteButton details={ details } />
+      </div>
+      <div className="content">
+        <h1 data-testid="recipe-title">
+          {isMeal ? details.strMeal : details.strDrink}
+        </h1>
+        { isMeal && details.strCategory && (
+          <p data-testid="recipe-category">
+            Category:
+            {' '}
+            {details.strCategory}
+          </p>
+        )}
 
-      {!isMeal && details && details.strAlcoholic && (
-        <p data-testid="recipe-category">
-          Alcoholic:
-          {' '}
-          {details.strAlcoholic}
-          {' '}
-          {details.strCategory}
-        </p>
-      )}
+        {!isMeal && details && details.strAlcoholic && (
+          <p data-testid="recipe-category">
+            Alcoholic:
+            {' '}
+            {details.strAlcoholic}
+            {' '}
+            {details.strCategory}
+          </p>
+        )}
 
-      <h2>Ingredients:</h2>
+        <h4>Ingredients:</h4>
 
-      <ul>
-        {ingredientsArray.map((ingredientObj, index) => (
-          <li
-            key={ index }
-            data-testid={ `${index}-ingredient-name-and-measure` }
-          >
-            {`${ingredientObj.measure ? `${ingredientObj.measure} - ` : ''}
+        <ul>
+          {ingredientsArray.map((ingredientObj, index) => (
+            <li
+              key={ index }
+              data-testid={ `${index}-ingredient-name-and-measure` }
+            >
+              {`${ingredientObj.measure ? `${ingredientObj.measure} - ` : ''}
             ${ingredientObj.ingredient}`}
-          </li>
-        ))}
-      </ul>
+            </li>
+          ))}
+        </ul>
 
-      <h2>Instructions:</h2>
-      <p data-testid="instructions">
-        {details.strInstructions}
-      </p>
+        <h4>Instructions:</h4>
+        <p data-testid="instructions">
+          {details.strInstructions}
+        </p>
 
-      {isMeal && details.strYoutube && (
-        <iframe
-          width="350"
-          height="196"
-          src={ details.strYoutube }
-          title="YouTube video player"
-          data-testid="video"
-          frameBorder="0"
-          allowFullScreen
-        />
-      )}
+        {isMeal && details.strYoutube && (
+          <iframe
+            width="350"
+            height="196"
+            src={ details.strYoutube }
+            title="YouTube video player"
+            data-testid="video"
+            frameBorder="0"
+            allowFullScreen
+          />
+        )}
+      </div>
 
-      <h2>Recommendations:</h2>
-      <Carousel />
+      <div className="recommended">
+        <h2>Recommended:</h2>
+        <Carousel />
+      </div>
       <StartRecipeButton isDone={ isDone } id={ id as string } />
     </div>
   );

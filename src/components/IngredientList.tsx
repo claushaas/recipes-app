@@ -1,6 +1,7 @@
 import { useState } from 'react';
 import { useNavigate } from 'react-router-dom';
 import { MealDetails } from '../types';
+import '../styles/ingredientList.css';
 
 type IngredientListProps = {
   recipe: MealDetails;
@@ -134,6 +135,7 @@ function IngredientList({ recipe }: IngredientListProps) {
           })
         }
         <button
+          className="finish-recipe-btn"
           disabled={ !enableFinishRecipeButton() }
           data-testid="finish-recipe-btn"
           type="submit"
