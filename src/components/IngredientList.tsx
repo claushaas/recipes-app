@@ -1,6 +1,7 @@
 import { useState } from 'react';
 import { useNavigate } from 'react-router-dom';
 import { MealDetails } from '../types';
+import '../styles/ingredientList.css';
 
 type IngredientListProps = {
   recipe: MealDetails;
