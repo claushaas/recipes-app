@@ -126,7 +126,6 @@ function RecipeDetails() {
       <div className="recommended">
         <h2>Recommended:</h2>
         <Carousel />
-
       </div>
       <StartRecipeButton isDone={ isDone } id={ id as string } />
     </div>
