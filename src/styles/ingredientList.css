@@ -1,0 +1,28 @@
+.finish-recipe-btn {
+  background-color: rgba(252, 196, 54, 1);
+  border: none;
+  border-radius: 5px;
+  color: white;
+  font-family: Roboto , sans-serif;
+  font-size: 1rem;
+  font-weight: 700;
+  height: 40px;
+  margin-left: 8px;
+  margin-top: 5px;
+  width: 90%;
+}
+
+.finish-recipe-btn:hover {
+  background-color: rgba(252, 196, 54, 0.8);
+  cursor: pointer;
+}
+
+.finish-recipe-btn:disabled {
+  background-color: rgba(252, 196, 54, 0.5);
+  cursor: not-allowed;
+}
+
+.finish-recipe-btn:disabled:hover {
+  background-color: rgba(252, 196, 54, 0.5);
+  cursor: not-allowed;
+}

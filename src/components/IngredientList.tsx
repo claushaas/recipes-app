@@ -134,6 +134,7 @@ function IngredientList({ recipe }: IngredientListProps) {
           })
         }
         <button
+          className="finish-recipe-btn"
           disabled={ !enableFinishRecipeButton() }
           data-testid="finish-recipe-btn"
           type="submit"

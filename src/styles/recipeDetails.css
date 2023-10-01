@@ -4,3 +4,8 @@
   object-fit: cover;
   width: 100%;
 }
+
+.recommended {
+  margin: auto;
+  width: 90%;
+}

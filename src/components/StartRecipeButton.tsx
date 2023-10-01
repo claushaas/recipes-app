@@ -21,6 +21,7 @@ function StartRecipeButton({ isDone, id }: StartRecipeButtonProps) {
   return (
     <Link to="in-progress">
       <button
+        className="finish-recipe-btn"
         data-testid="start-recipe-btn"
         style={ { position: 'fixed', bottom: '0' } }
       >

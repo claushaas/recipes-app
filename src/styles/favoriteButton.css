@@ -1,0 +1,18 @@
+.favorite-btn {
+  background: none;
+  border: none;
+  width: 26px;
+}
+
+.favorite-btn:hover {
+  cursor: pointer;
+}
+
+.favorite-btn:focus {
+  outline: none;
+}
+
+.favorite-btn img {
+  height: 26px;
+  width: 26px;
+}
