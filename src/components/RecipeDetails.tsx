@@ -8,6 +8,7 @@ import { fetchDrinks, fetchMeals, fetchRecipeDetails } from '../redux/actions';
 import StartRecipeButton from './StartRecipeButton';
 import ShareButton from './ShareButton';
 import FavoriteButton from './FavoriteButton';
+import '../styles/recipeDetails.css';
 
 function RecipeDetails() {
   const { id } = useParams();
@@ -59,10 +60,13 @@ function RecipeDetails() {
   return (
     <div>
       <img
+        className="recipe-img"
         src={ isMeal ? details.strMealThumb : details.strDrinkThumb }
         alt={ isMeal ? details.strMeal : details.strDrink }
         data-testid="recipe-photo"
       />
+      <ShareButton />
+      <FavoriteButton details={ details } />
       <h1 data-testid="recipe-title">
         {isMeal ? details.strMeal : details.strDrink}
       </h1>
@@ -105,8 +109,8 @@ function RecipeDetails() {
 
       {isMeal && details.strYoutube && (
         <iframe
-          width="560"
-          height="315"
+          width="350"
+          height="196"
           src={ details.strYoutube }
           title="YouTube video player"
           data-testid="video"
@@ -117,8 +121,6 @@ function RecipeDetails() {
 
       <h2>Recommendations:</h2>
       <Carousel />
-      <ShareButton />
-      <FavoriteButton />
       <StartRecipeButton isDone={ isDone } id={ id as string } />
     </div>
   );

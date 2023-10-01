@@ -7,12 +7,17 @@
 .profile-img {
   margin-bottom: -15px;
   margin-top: 50px;
-  width: 50px;
+  width: 30px;
 }
 
 .h1-profile {
   color: #41197f;
+  font-size: 25px;
   font-weight: 900;
+}
+
+.h2-profile {
+  font-size: 15px;
 }
 
 .div-buttons-profile {

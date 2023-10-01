@@ -58,16 +58,17 @@ function Header({ title, showSearch, showProfile }: HeaderProps) {
         </div>
       </header>
       {pathname === '/meals'
-        ? (
+        && (
           <div className="div-img">
             <img src={ food } alt="food" className="img-food" />
           </div>
-        )
-        : (
-          <div className="div-img">
-            <img src={ drinkImg } className="img-food" alt="drink" />
-          </div>
         )}
+      {pathname === '/drinks'
+          && (
+            <div className="div-img">
+              <img src={ drinkImg } className="img-food" alt="drink" />
+            </div>
+          )}
       <div className="div-bar">
         {showSearchBar && <SearchBar />}
       </div>
