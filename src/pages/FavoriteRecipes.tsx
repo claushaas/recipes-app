@@ -1,4 +1,5 @@
 import { useEffect, useState } from 'react';
+import { Link } from 'react-router-dom';
 import Swal from 'sweetalert2';
 import Header from '../components/Header';
 import shareIcon from '../images/shareIcon.svg';
@@ -73,16 +74,19 @@ function FavoriteRecipies() {
 
       {favoriteData.map((recipe, index) => (
         <div key={ index }>
-          <img
-            src={ recipe.image }
-            alt={ recipe.name }
-            data-testid={ `${index}-horizontal-image` }
-          />
-          <p data-testid={ `${index}-horizontal-name` }>
-            <b>
-              {recipe.name}
-            </b>
-          </p>
+          <Link to={ `/${recipe.type}s/${recipe.id}` }>
+            <img
+              style={ { width: '100px' } }
+              src={ recipe.image }
+              alt={ recipe.name }
+              data-testid={ `${index}-horizontal-image` }
+            />
+            <p data-testid={ `${index}-horizontal-name` }>
+              <b>
+                {recipe.name}
+              </b>
+            </p>
+          </Link>
           <p data-testid={ `${index}-horizontal-top-text` }>
             {recipe.type === 'meal'
               ? `${recipe.nationality} - ${recipe.category}` : recipe.alcoholicOrNot}
