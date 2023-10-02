@@ -76,6 +76,7 @@ function FavoriteRecipies() {
         <div key={ index }>
           <Link to={ `/${recipe.type}s/${recipe.id}` }>
             <img
+              style={ { width: '100px' } }
               src={ recipe.image }
               alt={ recipe.name }
               data-testid={ `${index}-horizontal-image` }
