@@ -1,6 +1,13 @@
-import { screen } from '@testing-library/react';
+import { screen, waitFor } from '@testing-library/react';
+import { vi } from 'vitest';
 import renderWithRouterAndRedux from './helpers/renderWithReduxAndRouter';
 import FavoriteRecipies from '../pages/FavoriteRecipes';
+import setLocalStorage from './helpers/setLocalStorage';
+import { mockForFavoriteRecipes } from './mock/mockData';
+
+beforeEach(() => {
+  window.localStorage.clear();
+});
 
 describe('Testes para a tela de receitas favoritas', () => {
   test('Deve renderizar o Header corretamente', () => {
@@ -27,5 +34,53 @@ describe('Testes para a tela de receitas favoritas', () => {
     await user.click(filterButtonAll);
     await user.click(filterButtonMeals);
     await user.click(filterButtonDrinks);
+  });
+
+  test('Botão de remover dos favoritos', async () => {
+    setLocalStorage('favoriteRecipes', mockForFavoriteRecipes);
+
+    const { user } = renderWithRouterAndRedux(<FavoriteRecipies />);
+
+    const removeButton = screen.getByTestId('0-horizontal-favorite-btn');
+
+    expect(removeButton).toBeInTheDocument();
+
+    await user.click(removeButton);
+  });
+
+  test('Botão de copiar link', async () => {
+    const IntersectionObserverMock = vi.fn(() => ({
+      writeText: vi.fn(),
+    }));
+
+    vi.stubGlobal('IntersectionObserver', IntersectionObserverMock);
+
+    setLocalStorage('favoriteRecipes', mockForFavoriteRecipes);
+
+    const { user } = renderWithRouterAndRedux(<FavoriteRecipies />);
+
+    const copyButton = screen.getByTestId('0-horizontal-share-btn');
+
+    expect(copyButton).toBeInTheDocument();
+
+    await user.click(copyButton);
+  });
+
+  test('Botão de copiar link', async () => {
+    const IntersectionObserverMock = vi.fn(() => ({
+      writeText: vi.fn(),
+    }));
+
+    vi.stubGlobal('IntersectionObserver', IntersectionObserverMock);
+
+    setLocalStorage('favoriteRecipes', mockForFavoriteRecipes);
+
+    const { user } = renderWithRouterAndRedux(<FavoriteRecipies />);
+
+    const copyButton = screen.getByTestId('1-horizontal-share-btn');
+
+    expect(copyButton).toBeInTheDocument();
+
+    await user.click(copyButton);
   });
 });
