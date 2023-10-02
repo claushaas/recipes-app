@@ -1,5 +1,4 @@
-import { screen, waitFor } from '@testing-library/react';
-import { vi } from 'vitest';
+import { screen } from '@testing-library/react';
 import renderWithRouterAndRedux from './helpers/renderWithReduxAndRouter';
 import FavoriteRecipies from '../pages/FavoriteRecipes';
 import setLocalStorage from './helpers/setLocalStorage';
@@ -49,12 +48,6 @@ describe('Testes para a tela de receitas favoritas', () => {
   });
 
   test('Botão de copiar link', async () => {
-    const IntersectionObserverMock = vi.fn(() => ({
-      writeText: vi.fn(),
-    }));
-
-    vi.stubGlobal('IntersectionObserver', IntersectionObserverMock);
-
     setLocalStorage('favoriteRecipes', mockForFavoriteRecipes);
 
     const { user } = renderWithRouterAndRedux(<FavoriteRecipies />);
@@ -67,12 +60,6 @@ describe('Testes para a tela de receitas favoritas', () => {
   });
 
   test('Botão de copiar link', async () => {
-    const IntersectionObserverMock = vi.fn(() => ({
-      writeText: vi.fn(),
-    }));
-
-    vi.stubGlobal('IntersectionObserver', IntersectionObserverMock);
-
     setLocalStorage('favoriteRecipes', mockForFavoriteRecipes);
 
     const { user } = renderWithRouterAndRedux(<FavoriteRecipies />);
