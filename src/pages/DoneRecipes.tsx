@@ -23,6 +23,7 @@ function DoneRecipies() {
     const storedRecipes = JSON.parse(localStorage.getItem('doneRecipes') ?? '[]');
     setDoneRecipes(storedRecipes);
   }, []);
+
   const handleClick = async (recipe: DoneRecipesType) => {
     let url;
     if (recipe.type === 'meal') {
@@ -34,6 +35,7 @@ function DoneRecipies() {
     await navigator.clipboard.writeText(url as string);
     Swal.fire('Link copied!');
   };
+
   const filteredRecipes = filter === 'all' ? DoneRecipes
     : DoneRecipes.filter((recipe) => recipe.type === filter);
 
