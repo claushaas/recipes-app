@@ -34,27 +34,36 @@ function MealProgress() {
   }, [id, pathname]);
   return (
     <div>
-      <img
-        className="recipe-img"
-        src={ recipe.strMealThumb || recipe.strDrinkThumb }
-        alt={ recipe.strMeal || recipe.strDrink }
-        data-testid="recipe-photo"
-      />
-      <div className="buttons">
-        <ShareButton />
-        <FavoriteButton details={ recipe } />
+      <div className="divLeft">
+        <img
+          className="recipe-img"
+          src={ recipe.strMealThumb || recipe.strDrinkThumb }
+          alt={ recipe.strMeal || recipe.strDrink }
+          data-testid="recipe-photo"
+        />
+        <div className="buttons">
+          <ShareButton />
+          <FavoriteButton details={ recipe } />
+        </div>
+        <div className="content">
+          <h1
+            data-testid="recipe-title"
+            className="spaceText-h1"
+          >
+            {recipe.strMeal || recipe.strDrink}
+          </h1>
+          <p data-testid="recipe-category" className="spaceText-p">
+            {recipe.strCategory}
+          </p>
+        </div>
       </div>
-      <div className="content">
-        <h1 data-testid="recipe-title">{recipe.strMeal || recipe.strDrink}</h1>
-        <p data-testid="recipe-category">
-          Categoria
-          {' '}
-          {recipe.strCategory}
-        </p>
-        <p data-testid="instructions">Instructions</p>
-        <p>{recipe.strInstructions}</p>
-        <p>Ingredients</p>
-        {(recipe.idMeal || recipe.idDrink) && <IngredientList recipe={ recipe } />}
+      <div className="div-content-progress">
+        <h2 data-testid="instructions">Instructions</h2>
+        <p className="p-instructions-progress">{recipe.strInstructions}</p>
+        <h2>Ingredients</h2>
+        <div className="div-content-check">
+          {(recipe.idMeal || recipe.idDrink) && <IngredientList recipe={ recipe } />}
+        </div>
       </div>
     </div>
   );

@@ -5,6 +5,7 @@ import { fetchDrinks, fetchMeals } from '../redux/actions';
 import { ReduxState } from '../types';
 import CarouselCard from './CarouselCard';
 import '../styles/carousel.css';
+import Loading from './Loading';
 
 function Carousel() {
   const dispatch = useDispatch();
@@ -35,7 +36,7 @@ function Carousel() {
             ))}
         </div>
       ) : (
-        <div>Loading...</div>
+        <Loading />
       )}
     </div>
   );

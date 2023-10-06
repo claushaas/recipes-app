@@ -84,7 +84,10 @@ function SearchBar() {
   };
 
   return (
-    <form onSubmit={ handleFormSubmit } className="searchBarForm">
+    <form
+      onSubmit={ handleFormSubmit }
+      className="searchBarForm"
+    >
       <input
         type="text"
         name="term"

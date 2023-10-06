@@ -1,4 +1,7 @@
 .div-header {
+  align-items: center;
+  display: flex;
+  flex-direction: column;
   width: 100%;
 }
 
@@ -6,7 +9,7 @@
   align-items: center;
   background-color: #fcdc36;
   display: flex;
-  height: 80px;
+  height: 60px;
   justify-content: space-between;
   width: 100%;
 }
@@ -20,13 +23,13 @@
 .h1 {
   color: #41197f;
   font-family: Times New Roman , Times , serif;
-  font-size: 30px;
+  font-size: 40px;
   font-style: italic;
 }
 
 .img-prato {
-  margin-right: 40px;
-  width: 40px;
+  margin-right: 30px;
+  width: 55px;
 }
 
 .div-buttons {
@@ -65,4 +68,10 @@
 .div-bar {
   display: flex;
   justify-content: center;
+}
+
+.img-food {
+  margin-bottom: 20px;
+  margin-top: 20px;
+  width: 200px;
 }

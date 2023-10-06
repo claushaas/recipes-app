@@ -30,9 +30,38 @@
 }
 
 .content {
-  border: 1px solid black;
+  align-items: center;
+  display: flex;
+  flex-direction: column;
+  position: absolute;
+}
+
+.spaceText-h1 {
+  font-size: 60px;
+  margin: 0;
+  padding: 0;
+}
+
+.spaceText-p {
+  font-size: 20px;
+  margin: 0;
+  padding: 0;
+}
+
+.div-content-progress {
+  margin-left: 20px;
+  margin-right: 20px;
+}
+
+.p-instructions-progress {
+  border: solid 1px rgb(207, 207, 207);
   border-radius: 5px;
-  margin: auto;
-  padding: 8px;
-  width: 90%;
+  padding: 15px;
+}
+
+.div-content-check {
+  border: solid 1px rgb(207, 207, 207);
+  border-radius: 5px;
+  margin-bottom: 15px;
+  padding: 15px;
 }
