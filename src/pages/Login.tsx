@@ -4,6 +4,7 @@ import isEmail from 'validator/lib/isEmail';
 import '../styles/login.css';
 import logo from '../images/logo-Recipes-App.png';
 import tomate from '../images/tomate.png';
+import 'animate.css';
 
 const INITIAL_LOGIN = {
   email: '',
@@ -33,12 +34,16 @@ function Login() {
   return (
     <div className="div-root">
       <div className="div-logo">
-        <img className="img" src={ logo } alt="logo" />
+        <img className="animate__animated animate__flip" src={ logo } alt="logo" />
       </div>
-      <img src={ tomate } className="tomate" alt="tomate" />
+      <img
+        src={ tomate }
+        className="animate__animated animate__slideInLeft"
+        alt="tomate"
+      />
       <div className="login-page">
-        <form onSubmit={ handleSubmit } className="form">
-          <h2 className="h2">LOGIN</h2>
+        <form onSubmit={ handleSubmit } className="animate__animated animate__slideInUp">
+          <h2 className="animate__zoomIn">LOGIN</h2>
           <input
             type="email"
             name="email"

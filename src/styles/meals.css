@@ -1,17 +1,19 @@
-.img-food {
-  margin-bottom: 20px;
-  margin-top: 20px;
-  width: 150px;
-}
-
 .cardsContainer {
   display: flex;
   flex-wrap: wrap;
   justify-content: center;
+  margin-bottom: 100px;
 }
 
 .div-img {
   align-items: center;
   display: flex;
+  justify-content: center;
+}
+
+.container-div-recipes {
+  align-items: center;
+  display: flex;
+  flex-direction: column;
   justify-content: center;
 }

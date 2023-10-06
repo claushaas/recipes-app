@@ -2,12 +2,18 @@ import { useEffect, useState } from 'react';
 import { useDispatch } from 'react-redux';
 import { useLocation } from 'react-router-dom';
 import '../styles/categoorybutton.css';
-/* import All from '../images/All.png'; */
-/* import Beef from '../images/beef.png';
+import All from '../images/All.png';
+import Beef from '../images/beef.png';
 import Goat from '../images/goat.png';
 import Chicken from '../images/chicken.png';
 import Breakfast from '../images/breakfast.png';
-import Dessert from '../images/dessert.png'; */
+import Dessert from '../images/dessert.png';
+import AllDrinks from '../images/AllDrinks.png';
+import Ordinary from '../images/drink.png';
+import Cocktail from '../images/cocktail.png';
+import Shake from '../images/shake.png';
+import Other from '../images/other.png';
+import Cocoa from '../images/cocoa.png';
 
 type CategoryMealType = {
   strCategory: string;
@@ -17,9 +23,37 @@ type CategoryDrinkType = {
   strCategory: string;
 };
 
-/* const iconsMeals = [
-  {src: Beef}, {src: Goat}, {src: Chicken}, {src: Breakfast}, {src: Dessert}
-] */
+type IconsMealsType = {
+  Beef: string;
+  Breakfast: string;
+  Chicken: string;
+  Dessert: string;
+  Goat: string;
+};
+
+type IconsDrinksType = {
+  Ordinary: string;
+  Cocktail: string;
+  Shake: string;
+  Other: string;
+  Cocoa: string;
+};
+
+const iconsMeals: IconsMealsType = {
+  Beef,
+  Breakfast,
+  Chicken,
+  Dessert,
+  Goat,
+};
+
+const iconsDrinks: IconsDrinksType = {
+  'Ordinary Drink': Ordinary,
+  Cocktail,
+  Shake,
+  'Other / Unknown': Other,
+  Cocoa,
+};
 
 function CategoryButton() {
   const [categoryMeal, setCategoryMeal] = useState<CategoryMealType[]>([]);
@@ -110,14 +144,23 @@ function CategoryButton() {
   }, []);
 
   return (
-    <div>
-      {pathname === '/meals' || pathname === '/drinks' ? (
+    <div className="div-category">
+      {pathname === '/meals' ? (
         <button
           data-testid="All-category-filter"
-          onClick={ pathname === '/meals' ? () => mealsAPI() : () => drinksAPI() }
-          className="btn-all-category"
+          onClick={ () => mealsAPI() }
+          className="animate__animated animate__fadeInDown"
         >
-          All
+          <img src={ All } className="img-category-class" alt={ All } />
+        </button>
+      ) : null}
+      {pathname === '/drinks' ? (
+        <button
+          data-testid="All-category-filter"
+          onClick={ () => drinksAPI() }
+          className="animate__animated animate__fadeInDown"
+        >
+          <img src={ AllDrinks } className="img-category-class" alt={ AllDrinks } />
         </button>
       ) : null}
       {pathname === '/meals' && categoryMeal?.slice(0, 5)
@@ -127,9 +170,13 @@ function CategoryButton() {
             key={ index }
             data-testid={ `${category.strCategory}-category-filter` }
             onClick={ () => filterByCategoryMeal(category.strCategory, !toggleMeal) }
-            className="btn-meals-category"
+            className="animate__animated animate__fadeInDown"
           >
-            {category.strCategory}
+            <img
+              alt={ category.strCategory }
+              className="img-category-class"
+              src={ iconsMeals[category.strCategory] }
+            />
           </button>
         ))}
 
@@ -140,9 +187,13 @@ function CategoryButton() {
             key={ index }
             data-testid={ `${category.strCategory}-category-filter` }
             onClick={ () => filterByCategoryDrink(category.strCategory, !toggleDrink) }
-            className="btn-drinks-category"
+            className="animate__animated animate__fadeInDown"
           >
-            {category.strCategory}
+            <img
+              alt={ category.strCategory }
+              className="img-category-class"
+              src={ iconsDrinks[category.strCategory] }
+            />
           </button>
         ))}
     </div>

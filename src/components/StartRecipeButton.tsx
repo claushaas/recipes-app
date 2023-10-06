@@ -1,4 +1,5 @@
 import { Link } from 'react-router-dom';
+import '../styles/startButon.css';
 
 type StartRecipeButtonProps = {
   isDone: boolean;
@@ -21,7 +22,7 @@ function StartRecipeButton({ isDone, id }: StartRecipeButtonProps) {
   return (
     <Link to="in-progress">
       <button
-        className="finish-recipe-btn"
+        className="start-recipe-btn"
         data-testid="start-recipe-btn"
         style={ { position: 'fixed', bottom: '0' } }
       >

@@ -1,24 +1,4 @@
-.btn-meals-category {
-  background: none;
-  border: none;
-  color: rgb(156, 156, 156);
-  cursor: pointer;
-  font: inherit;
-  margin-bottom: 30px;
-  outline: inherit;
-}
-
-.btn-drinks-category {
-  background: none;
-  border: none;
-  color: rgb(156, 156, 156);
-  cursor: pointer;
-  font: inherit;
-  margin-bottom: 30px;
-  outline: inherit;
-}
-
-.btn-all-category {
+.animate__fadeInDown {
   background: none;
   border: none;
   color: rgb(156, 156, 156);
@@ -32,4 +12,9 @@
   align-items: center;
   display: flex;
   justify-content: center;
+}
+
+.img-category-class {
+  height: 78.25px;
+  width: 60px;
 }

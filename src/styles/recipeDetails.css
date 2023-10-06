@@ -2,10 +2,71 @@
   box-shadow: 0 5px 15px rgba(0, 0, 0, 0.2);
   height: 100%;
   object-fit: cover;
+  opacity: 0.5;
   width: 100%;
 }
 
 .recommended {
   margin: auto;
   width: 90%;
+}
+
+.content-div-container {
+  margin-left: 30px;
+  margin-right: 30px;
+}
+
+.divLeft {
+  align-items: center;
+  display: flex;
+  justify-content: center;
+}
+
+.spaceText {
+  color: black;
+  font-size: 50px;
+  padding-right: 16px;
+  position: absolute;
+}
+
+.buttons {
+  position: absolute;
+  right: 10px;
+  top: 10px;
+}
+
+.div-details-category-img {
+  align-items: center;
+  display: flex;
+  justify-content: center;
+  left: 10px;
+  position: absolute;
+  top: 2px;
+}
+
+.category-p-datails {
+  font-size: 20px;
+  margin-left: 10px;
+}
+
+.img-category-class-details {
+  height: 50px;
+  mix-blend-mode: multiply;
+  width: 50px;
+}
+
+.div-ingredients {
+  border: solid 1px rgb(207, 207, 207);
+  border-radius: 5px;
+}
+
+.div-instructions {
+  border: solid 1px rgb(207, 207, 207);
+  border-radius: 5px;
+  padding-left: 15px;
+  padding-right: 15px;
+}
+
+.youtube-video {
+  width: 479px;
 }

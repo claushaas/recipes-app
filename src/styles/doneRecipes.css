@@ -1,0 +1,114 @@
+.btn-All {
+  align-items: center;
+  background: none;
+  border: none;
+  color: rgb(133, 133, 133);
+  cursor: pointer;
+  display: flex;
+  font: inherit;
+  font-size: 25px;
+  justify-content: center;
+  outline: inherit;
+  padding: 0;
+}
+
+.btn-Food {
+  align-items: center;
+  background: none;
+  border: none;
+  color: rgb(133, 133, 133);
+  cursor: pointer;
+  display: flex;
+  font: inherit;
+  font-size: 25px;
+  justify-content: center;
+  margin-left: 30px;
+  outline: inherit;
+  padding: 0;
+}
+
+.btn-Drinks {
+  align-items: center;
+  background: none;
+  border: none;
+  color: rgb(133, 133, 133);
+  cursor: pointer;
+  display: flex;
+  font: inherit;
+  font-size: 25px;
+  justify-content: center;
+  margin-left: 30px;
+  outline: inherit;
+  padding: 0;
+}
+
+.div-buttons-donerecipes {
+  align-items: center;
+  display: flex;
+  justify-content: center;
+  margin-top: 20px;
+}
+
+.imgAll, .imgFood, .imgDrinks {
+  width: 90px;
+}
+
+.div-donerecipes {
+  align-items: center;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  margin-top: 20px;
+}
+
+.h1-done {
+  color: #41197f;
+  font-size: 30px;
+  font-weight: 900;
+}
+
+.doneImgrecipes {
+  margin-bottom: -15px;
+  width: 60px;
+}
+
+.div-content-done-recipes {
+  border: solid 1px rgb(214, 214, 214);
+  border-radius: 10px;
+  display: flex;
+  height: 200px;
+  justify-content: space-between;
+  margin: 15px;
+}
+
+.img-div-recipes-done {
+  border-radius: 10px 0 0 10px;
+  height: 100%;
+}
+
+.btn-comp-done {
+  background: none;
+  border: none;
+  color: inherit;
+  cursor: pointer;
+  font: inherit;
+  height: 40px;
+  margin-right: 15px;
+  margin-top: 5px;
+  outline: inherit;
+  padding: 0;
+}
+
+.h2recipesdone {
+  color: black;
+  margin-bottom: -15px;
+}
+
+.linkrecipesh2 {
+  text-decoration: none;
+}
+
+.p-div-category {
+  color: gray;
+  margin-bottom: 50px;
+}
