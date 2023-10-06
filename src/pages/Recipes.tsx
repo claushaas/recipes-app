@@ -59,31 +59,33 @@ function Recipes() {
         showProfile
       />
       {showCategory
-        ? <div className="container-div-recipes">
-          <CategoryButton />
-          <section className="cardsContainer">
-            {pathname === '/meals' && meals.meals?.slice(0, 12)
-              .map((meal: Meal, index: number) => (
-                <RecipeCard
-                  key={ index }
-                  index={ index }
-                  img={ meal.strMealThumb }
-                  name={ meal.strMeal }
-                  id={ meal.idMeal }
-                />
-              ))}
-            {pathname === '/drinks' && drinks.drinks?.slice(0, 12)
-              .map((drink: Drink, index: number) => (
-                <RecipeCard
-                  key={ index }
-                  index={ index }
-                  img={ drink.strDrinkThumb }
-                  name={ drink.strDrink }
-                  id={ drink.idDrink }
-                />
-              ))}
-          </section>
-        </div>
+        ? (
+          <div className="container-div-recipes">
+            <CategoryButton />
+            <section className="cardsContainer">
+              {pathname === '/meals' && meals.meals?.slice(0, 12)
+                .map((meal: Meal, index: number) => (
+                  <RecipeCard
+                    key={ index }
+                    index={ index }
+                    img={ meal.strMealThumb }
+                    name={ meal.strMeal }
+                    id={ meal.idMeal }
+                  />
+                ))}
+              {pathname === '/drinks' && drinks.drinks?.slice(0, 12)
+                .map((drink: Drink, index: number) => (
+                  <RecipeCard
+                    key={ index }
+                    index={ index }
+                    img={ drink.strDrinkThumb }
+                    name={ drink.strDrink }
+                    id={ drink.idDrink }
+                  />
+                ))}
+            </section>
+          </div>
+        )
         : <Loading /> }
       <Footer />
     </>

@@ -175,6 +175,7 @@ function RecipeDetails() {
               controls
               className="youtube-video"
             >
+              <track kind="captions" />
               <p>
                 Your browser doesnt support HTML5 video. Here is a
                 <a href={ details.strYoutube }>link to the video</a>
