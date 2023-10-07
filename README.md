@@ -1,4 +1,13 @@
-# :construction: README em construção ! :construction:
+# App de Receitas
+
+Projeto de conclusão do módulo de front-end na trybe.
+
+Foi feito utilizando tecnologias como React, Redux, Redux-Thunk, CSS
+
+Confira o deploy dele em https://recipes-app-five-olive.vercel.app/
+
+Visualize em tela pequena para melhores resultados.
+
 <!-- Olá, Tryber!
 Esse é apenas um arquivo inicial para o README do seu projeto.
 É essencial que você preencha esse documento por conta própria, ok?
