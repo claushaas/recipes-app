@@ -4,7 +4,7 @@ Projeto de conclusão do módulo de front-end na trybe.
 
 Foi feito utilizando tecnologias como React, Redux, Redux-Thunk, CSS
 
-Confira o deploy dele em https://recipes-app-five-olive.vercel.app/
+Confira o deploy dele em https://recipes-app.claushaas.dev/
 
 Visualize em tela pequena para melhores resultados.
 
